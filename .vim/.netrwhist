@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/creator/.vim/colors'
+let g:netrw_dirhist_4='/home/creator/.config/polybar'
+let g:netrw_dirhist_3='/home/creator/.config/i3'
+let g:netrw_dirhist_2='/home/creator/.config'
+let g:netrw_dirhist_1='/home/creator/.config/xfce4/xfconf/xfce-perchannel-xml'
+let g:netrw_dirhist_0='/home/creator/.config/xfce4/xfconf'
+let g:netrw_dirhist_9='/home/creator/.config/xfce4'
+let g:netrw_dirhist_8='/home/creator/.config'
+let g:netrw_dirhist_7='/home/creator/.config/htop'
+let g:netrw_dirhist_6='/home/creator/.config'
