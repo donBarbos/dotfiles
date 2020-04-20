@@ -1,3 +1,3 @@
-## Краткое руководство по настройке Rofi
+## Quick guide
 
-чтобы установить тему для rofi используй команду `rofi-theme-selector`
+to install the theme for rofi use the command `rofi-theme-selector`

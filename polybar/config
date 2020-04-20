@@ -138,7 +138,7 @@ menu-0-2-exec = caffeine kill
 
 [module/fs1]
 type = custom/script
-exec = /home/creator/soft/polybar/free_space_home.sh
+exec = $HOME/soft/polybar/free_space_home.sh
 interval = 600
 label = %{T4}%{T-} %output%
 label-foreground = ${colors.for_files}
