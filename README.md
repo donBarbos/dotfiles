@@ -22,21 +22,27 @@ I have a [installer](https://github.com/DONSIMON92/configs#installer)
 
 ## SLiM
 
-
+copy the configuration files to the directory: */usr/share/slim/themes/default*
+```
+sudo cp -r 
+```
 
 ## Rofi
 
-+ run rofi and type `rofi-theme-selector`
++ you can preview and apply themes for rofi with
+```
+rofi-theme-selector
+```
 
 ## Ranger
 
 ## VIM
 
 + install [vim-plug](https://github.com/junegunn/vim-plug "github link")
-
-`curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \`
-`    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
-
+```
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 + go to vim and enter the command `:PlugInstall`
 
 ## Scripts
@@ -44,8 +50,9 @@ I have a [installer](https://github.com/DONSIMON92/configs#installer)
 ## Installer
 
 run the script, then all previous steps are performed automatically
-
-`cd  configs`
-`chmod +x install.sh`
-`./install.sh`
+```
+cd  configs
+chmod +x install.sh
+./install.sh
+```
 or `bash configs/install.sh`
