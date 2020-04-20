@@ -8,15 +8,19 @@ I have a trial [installer]()
 2. [polybar](https://github.com/DONSIMON92/configs#polybar "will transfer to the desired head")
 3. [slim](https://github.com/DONSIMON92/configs#slim "will transfer to the desired head")
 4. [rofi](https://github.com/DONSIMON92/configs#rofi "will transfer to the desired head") 
-5. []("will transfer to the desired head")
+5. [Scripts]("will transfer to the desired head")
 6. []("will transfer to the desired head")
 
 ## I3WM
 
 ## POLYBAR
 
+### scripts for polybar
+
 ## SLiM
 
 ## Rofi
 
-##
+## Scripts
+
+## 
