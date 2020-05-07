@@ -30,7 +30,7 @@ cp -r polybar ~/.config/polybar
 
 ## SLiM
 
-copy the configuration files to the directory: */usr/share/slim/themes/default*
++ copy the configuration files to the directory: */usr/share/slim/themes/default*
 ```
 sudo cp -r slim/default /usr/share/slim/themes/default
 ```
