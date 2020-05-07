@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
     alias grep='grep --colour=auto'
     alias update='sudo pacman -Syu'
     alias lock='$HOME/code/Shell/lock.sh'
+    alias e='exit' # for ranger
 #for git
     alias gs='git status'
     alias ga='git add'

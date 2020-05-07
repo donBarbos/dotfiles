@@ -4,7 +4,7 @@ I have a [installer](https://github.com/DONSIMON92/configs#installer)
 ---
 ### Steps
 
-> Complete the following tasks to configure your system.
+> *Complete the following tasks to configure your system.*
 
 1. [i3wm](https://github.com/DONSIMON92/configs#i3wm "will transfer to the desired head")
 2. [polybar](https://github.com/DONSIMON92/configs#polybar "will transfer to the desired head")
@@ -16,13 +16,17 @@ I have a [installer](https://github.com/DONSIMON92/configs#installer)
 
 ## I3WM
 
-
++ copy config file and other scripts
+```
+cp i3/i3wm/config ~/.config/i3/config && mkdir ~/code && mkdir ~/Pictures && mkdir ~/code/Shell && cp i3/change_i3config_default.sh ~/code/Shell/change_i3config_default.sh && cp i3/change_i3config_2.sh ~/code/Shell/change_i3config_2.sh && cp i3/lock.sh ~/code/Shell/lock.sh && cp i3/wallpaper.jpg ~/Pictures/wallpaper.jpg
+```
 
 ## POLYBAR
 
-### scripts for polybar
-
-    + copy
++ copy config file and other scripts
+```
+cp -r polybar ~/.config/polybar
+```
 
 ## SLiM
 
@@ -38,9 +42,14 @@ sudo cp -r slim/default /usr/share/slim/themes/default
 rofi-theme-selector
 ```
 
++ or you can copy config file
+```
+cp rofi/config ~/.config/rofi/config
+```
+
 ## Ranger
 
-
+-- nothing yet
 
 ## VIM
 
@@ -58,9 +67,9 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 ## Scripts
 
-copy the folder *scripts* to *.configs/polybar/*
++ 
 ```
-cp -r scripts ~/.config/polybar/scripts
+
 ```
 
 ## Installer
