@@ -16,15 +16,19 @@ I have a [installer](https://github.com/DONSIMON92/configs#installer)
 
 ## I3WM
 
+
+
 ## POLYBAR
 
 ### scripts for polybar
+
+    + copy
 
 ## SLiM
 
 copy the configuration files to the directory: */usr/share/slim/themes/default*
 ```
-sudo cp -r 
+sudo cp -r slim/default /usr/share/slim/themes/default
 ```
 
 ## Rofi
@@ -36,7 +40,14 @@ rofi-theme-selector
 
 ## Ranger
 
+
+
 ## VIM
+
++ copy *.vimrc* and *.vim/*
+```
+cp .vimrc ~/.vimrc && cp -r .vim ~/.vim 
+```
 
 + install [vim-plug](https://github.com/junegunn/vim-plug "github link")
 ```
@@ -46,6 +57,11 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 + go to vim and enter the command `:PlugInstall`
 
 ## Scripts
+
+copy the folder *scripts* to *.configs/polybar/*
+```
+cp -r scripts ~/.config/polybar/scripts
+```
 
 ## Installer
 

@@ -16,21 +16,14 @@
 ;=====================================================
 
 [colors]
-background = #BCC3C3
-background-alt = #002B36
+background-alt = #2E3436
 foreground = #002B36
-foreground-alt = #BCC3C3
-primary = #ffb52a
-secondary = #e60053
+foreground-alt = #ffffff
 alert = #FF0000
 newcolor = #e6b800
-newcolor2 = #ffffff
 for_dollar = #00e66b
 for_files = #099c64
 yellow = #ffff00
-red = #FF0000
-darkred	= #8B0000
-maroon = #800000
 Aqua = #00FFFF
 Blue = #0000FF
 orange = #ffa500
@@ -38,7 +31,7 @@ orange = #ffa500
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 24
+height = 26
 radius = 10.0
 ;offset-x = 1%
 ;offset-y = 1%
@@ -64,24 +57,15 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Hack:pixelsize=11;3
+font-0 = Hack:pixelsize=11.5;3
 font-2 = "Wuncon Siji:pixelsize=11;3"
 font-1 = Weather Icons:style=Regular:size=11;3
 font-3 = FontAwesome5Free:style=Solid:pixelsize=11;3
 font-4 = FontAwesome5Brands:style=Solid:pixelsize=11;3
+font-5 = Weather Icons:size=12;1
 
-;font-0 = fixed:pixelsize=11;3
-;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-;font-2 = siji:pixelsize=10;1
-;font-3 = Material Icons:style=Regular
-;font-4 = FontAwesome 5 Free:size=11:style=Solid;3
-
-
-;separator = " "
-
-modules-left = sp0 i3 sp2 updates-arch-combined sp2 fs3 fs1 sp2 mybright sp2 sp1 memory sp1 cpu sp2 sp1 covid19 sp1 xkeyboard ;fs4 
-modules-right = temperature eth sp2 openweathermap-fullfeatured sp2 usd-price sp2 pub-ip sp2 volume sp2 sp1 date sp1 powermenu sp1 
-
+modules-left = sp0 i3 sp2 easteregg-pornhub sp2 fs1 sp2 memory sp2 cpu sp2 info-pingrtt sp2 network-traffic
+modules-right = xbacklight sp2 numlock sp2 openweathermap-detailed sp2 pub-ip sp2 pulseaudio-control sp2 keyboard sp2 popup-calendar sp0 
 
 tray-position = right
 tray-padding = 0
@@ -105,200 +89,65 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 ;cursor-scroll = ns-resize
  
- [module/keyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-blacklist-1 = scroll lock
-
-[module/mybright]
-type = custom/script
-exec = /home/creator/soft/polybar/brightness.sh 
-scroll-up = /home/creator/soft/polybar/brightness.sh + DP1
-scroll-down = /home/creator/soft/polybar/brightness.sh - DP1
-label = %{T4}%{T-} %output%
-interval = 0.5 
-
-[module/wlan]
-type = internal/network
-interface = wlp2s0
-interval = 3.0
-format-connected-padding = 1
-format-disconnected-padding = 1
-format-connected = <label-connected>
-label-connected = %essid%
-label-disconnected = 
-
-[module/caffeine]
-type = custom/menu
-
-label-open = 
-label-close = 
-label-open-padding = 0
-label-close-padding = 1
-label-separator = " "
-
-menu-0-0 = 
-menu-0-0-exec = caffeine -a
-menu-0-1 = 
-menu-0-1-exec = caffeine -d
-menu-0-2 = 
-menu-0-2-exec = caffeine kill
-
 [module/fs1]
 type = custom/script
-exec = $HOME/soft/polybar/free_space_home.sh
+exec = ~/.config/polybar/scripts/free_space_home.sh
 interval = 600
 label = %{T4}%{T-} %output%
 label-foreground = ${colors.for_files}
+format-underline = ${colors.for_files}
+click-left = "gnome-terminal -e 'ranger /home'"
 
-
-[module/fs2]
+[module/info-pingrtt]
 type = custom/script
-exec = /home/creator/soft/polybar/free_space_mnt.sh
-interval = 600
-label = %{T4}%{T-} %output%
-label-foreground = ${colors.for_files}
+exec = ~/.config/polybar/scripts/info-pingrtt.sh
+interval = 2
 
-[module/fs3]
+[module/easteregg-pornhub]
 type = custom/script
-exec = /home/creator/soft/polybar/free_space_buflash.sh
-interval = 600
-label = %{T4}%{T-} %output%
-label-foreground = ${colors.for_files}
+exec = echo " hub "
+interval = 3600
+click-left = "firefox --private-window http://porno365.red/ &"
 
-[module/covid19]
-type = custom/script
-exec = /home/creator/code/github/covid19-cli.sh 
-interval = 20
-label = %{T4}若%{T-} %output%
-
-[module/fs4]
-type = custom/script
-exec = /home/creator/soft/polybar/free_space_myarchserver.sh
-interval = 6
-label = %{T4}%{T-} %output%
-
-[module/btcrub]
-type=custom/script
-exec=/home/creator/soft/polybar/usd_price_2.sh
-interval = 6000
-
-[module/hum1]
-type = custom/script
-exec = /home/creator/soft/polybar/humidity1.sh
-interval = 600
-
-[module/hum2]
-type = custom/script
-exec = /home/creator/soft/polybar/humidity2.sh
-interval = 600
-
-[module/temperature]
-type = internal/temperature
-warn-temperature = 70
-units = true
 format = <label>
-format-warn = <label-warn>
-label = TEMP %temperature-c%
-label-warn = TEMP %temperature-c%
-label-warn-foreground = #f00
+format-prefix = "  Porn "
+format-prefix-foreground = #ffffff
+format-prefix-background = #000000
 
-[module/ttt]
-type = custom/script
-exec = /home/creator/soft/polybar/inbox-imap-shellnetrc.sh
-interval = 10
-label = %{T4}%{T-} %output%
-click-left = thunderbird 
+format-overline = #000000
+format-underline = #000000
+format-foreground = #000000
+format-background = #ffa500
 
-[module/unread_mail]
-type = custom/script
-click-left=  thunderbird & ; you can set your own client
-exec = /home/creator/soft/polybar/UnseenMail.py
-;exec = /home/creator/soft/polybar/inbox-imap-shellnetrc.sh
-interval = 100
-
-[module/openweathermap-fullfeatured]
-type = custom/script
-exec = /home/creator/soft/polybar/weather-openmap.sh
-interval = 6
-label-font = 5
-;label = %{T1} %output% %{T-}
-label-foreground = ${colors.yellow}
-
-[module/trash]
-type = custom/script
-exec = /home/creator/soft/polybar/trash.sh
-interval = 1
-label = %output%
-format-prefix = "%{T4}%{T-} "
-format-prefix-padding-left = 0
-format-prefix-padding-right = 0
-;format-prefix-foreground = ${colors.foreground}
-label-padding = 0
-;label-foreground = ${colors.foreground}
-click-left = pcmanfm -n ~/.local/share/Trash/files
-click-right = rm -rf ~/.local/share/Trash/files/.??* ;exec notify-send 'Trash cleaned'
-
-
-[module/test1]
-type = custom/script
-exec = /home/creator/soft/polybar/inbox-imap-shellnetrc.sh
-interval = 60
-label = 1 %output%
-
-[module/system-cpu-loadavg]
-type = custom/script
-exec = /home/creator/soft/polybar/cpu_loadavg.sh
-interval = 5
-label = %output%
+format-suffix = " "
+format-suffix-background = #000000
+format-suffix-foreground = #000000
 
 [module/pub-ip]
 type = custom/script
-exec = /home/creator/soft/polybar/pub_ip_polybar.sh
+click-left = exec xdg-open https://2ip.ru/ &
+exec = ~/.config/polybar/scripts/pub_ip_polybar.sh
 interval = 5
 label = %{T4}%{T-} %output%
-label-foreground = ${colors.newcolor2}
+label-foreground = ${colors.foreground-alt}
 
 [module/btc-price]
 type = custom/script
-exec = /home/creator/soft/polybar/btc_price_coinm.sh
+exec = ~/.config/polybar/scripts/btc_price_coinm.sh
 interval = 5
 label =  %output%
 
 [module/updates-arch-combined]
 type = custom/script
-exec = /home/creator/soft/polybar/arch_updates.sh
-;exec = /home/creator/soft/polybar/au.sh
-interval = 200
+exec = ~/.config/polybar/scripts/arch_updates.sh
+interval = 100
 label = %{T4}%{T-} %output%
 label-foreground = ${colors.newcolor}
-
-[module/usd-price]
-type = custom/script
-exec = /home/creator/soft/polybar/usd_price_cbr.sh
-interval = 5
-label =  %output%
-label-foreground = ${colors.for_dollar}
-
-
-[module/info-ssh-sessions]
-type = custom/script
-exec = /home/creator/soft/polybar/info_ssh_sessions.sh
-interval = 60
-
-[module/soft]
-type = custom/script
-exec = /home/creator/soft/polybar/info-softwarecounter.py
-interval = 10
-
-[module/vpn-openvpn-status]
-type = custom/script
-exec = /home/creator/soft/polybar/vpn_status.sh
-interval = 5
+format-underline = ${colors.newcolor}
 
 [module/sp1]
 type = custom/text
-content = "  "
+content = " | "
 content-foreground = ${colors.foreground-alt}
 content-background = ${colors.background-alt}
 
@@ -310,15 +159,9 @@ content-background = ${colors.background-alt}
 
 [module/sp2]
 type = custom/text
-content = " | "
+content = "  "
 content-foreground = #93A1A1
-content-background = ${colors.background-alt}
-
-[module/profile]
-type = custom/text
-content = "  BANDITHIJO "
-content-foreground = ${colors.foreground-alt}
-content-background = ${colors.background-alt}
+content-background = ${colors.background-alt
 
 [module/i3]
 type = internal/i3
@@ -326,20 +169,21 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 strip-wsnumbers = false
-enable-click = false
+enable-click = true
 enable-scroll = false
 
-;ws-icon-0 = 1;
-;ws-icon-1 = 2;
-;ws-icon-2 = 3;
-;ws-icon-3 = 4;
-;ws-icon-4 = 5;
-;ws-icon-5 = 6;
-;ws-icon-6 = 7;
-;ws-icon-7 = 8;
-;ws-icon-8 = 9;
-;ws-icon-9 = 10;
-;ws-icon-default = ♟
+fuzzy-match = true
+ws-icon-0 = 1;♚
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+;ws-icon-default = 
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -352,7 +196,7 @@ label-mode-background = ${colors.background-alt}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-foreground = ${colors.Blue}
-label-focused-background = ${colors.background}
+label-focused-background = #BCC3C3
 label-focused-underline = ${colors.foreground-alt}
 label-focused-padding = 1
 
@@ -380,19 +224,6 @@ label-separator =
 label-separator-padding = 0
 label-separator-foreground = #FFF
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
 [module/xbacklight]
 type = internal/xbacklight
 
@@ -402,323 +233,97 @@ format = "<label>"
 label = " %percentage%%"
 label-foreground = ${colors.foreground-alt}
 label-background = ${colors.background-alt}
-;label-underline = ${colors.foreground}
 
 bar-width = 5
 bar-indicator = []
 bar-indicator-foreground = ${colors.foreground-alt}
 bar-indicator-background = ${colors.background-alt}
-;bar-indicator-underline = ${colors.foreground}
 bar-indicator-font = 1
 bar-fill = -
 bar-fill-font = 1
 bar-fill-foreground = ${colors.foreground-alt}
 bar-fill-background = ${colors.background-alt}
-;bar-fill-underline = ${colors.foreground}
 bar-empty = -
 bar-empty-font = 1
 bar-empty-foreground = ${colors.foreground-alt}
 bar-empty-background = ${colors.background-alt}
-;bar-empty-underline = ${colors.foreground}
 
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
-[module/xwindow]
-type = internal/xwindow
-format = <label>
-format-padding = 0
-
-;label = "  %title:0:60:...% "
-label = "  %title%"
-label-maxlen = 30
-label-foreground = ${colors.foreground-alt}
-label-background = ${colors.background-alt}
-;label-underline = ${colors.foreground}
-
-label-empty =
-label-empty-foreground = ${colors.background}
-
-[module/xkeyboard]
+[module/numlock]
 type = internal/xkeyboard
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 
-;format = <label-layout><label-indicator>
 format = <label-indicator>
-format-spacing = 0
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-background = ${colors.background-alt}
-;format-prefix-underline = ${colors.foreground}
-
-label-layout = "%layout%"
-label-layout-foreground = ${colors.foreground-alt}
-label-layout-background = ${colors.background-alt}
-;label-layout-underline = ${colors.foreground}
 
 label-indicator-padding = 0
-label-indicator-margin = 0
-label-indicator = " CAPS "
-label-indicator-foreground = ${colors.foreground}
+label-indicator-margin = 1
+label-indicator = "CAPS"
+label-indicator-foreground = #FCFC4C
 label-indicator-background = ${colors.alert}
-;label-indicator-underline = ${colors.alert}
 
-[module/filesystem]
-type = internal/fs
-interval = 25
+[module/keyboard]
+type = internal/xkeyboard
 
-mount-0 = /
+format = <label-layout>
 
-label-mounted = " %percentage_used%%"
-label-mounted-foreground = ${colors.foreground-alt}
-label-mounted-background = ${colors.background-alt}
-;label-mounted-underline = ${colors.foreground}
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground}
+label-layout = "%name%"
+label-layout-padding = 1
+label-layout-margin = 0
+label-layout-background = #bc99ed
+label-layout-foreground = #E4E439
 
 [module/cpu]
-format-label = internal/cpu
-
-format = <label>
-
-ramp-coreload-0 = ▁
-ramp-coreload-1 = ▂
-ramp-coreload-2 = ▃
-ramp-coreload-3 = ▄
-ramp-coreload-4 = ▅
-ramp-coreload-5 = ▆
-ramp-coreload-6 = ▇
-ramp-coreload-7 = █
-ramp-coreload-underline = ${colors.fg}
-
 type = internal/cpu
-interval = 2
-label = " %percentage%%"
-
-;[module/cpu]
-;type = internal/cpu
-;interval = 1
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-alt}
-;format-prefix-background = ${colors.background-alt}
-;format-underline = ${colors.foreground}
-;label = "%percentage:2%%"
-;label-foreground = ${colors.foreground-alt}
-;label-background = ${colors.background-alt}
+interval = 1
+label = " %percentage%%"
+label-foreground = #f09b56
+click-left = "gnome-terminal -e 'htop'"
 
 [module/memory]
 type = internal/memory
-interval = 2
-label = " %percentage_used%%"
-format = <label> 
-ramp-used-0 = ▁
-ramp-used-1 = ▂
-ramp-used-2 = ▃
-ramp-used-3 = ▄
-ramp-used-4 = ▅
-ramp-used-5 = ▆
-ramp-used-6 = ▇
-ramp-used-7 = █
-
-;[module/memory]
-;type = internal/memory
-;interval = 1
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-alt}
-;format-prefix-background = ${colors.background-alt}
-;;format-underline = ${colors.foreground}
-;label = "%percentage_used%%"
-;label-foreground = ${colors.foreground-alt}
-;label-background = ${colors.background-alt}
-
-[module/netspdwlan]
-type = internal/network
-interface = wlp2s0
-interval = 1.0
-format-connected = "<label-connected>"
-label-connected = "%downspeed:9:9% %upspeed:9:9%"
-label-connected-foreground = ${colors.foreground-alt}
-label-connected-background = ${colors.background-alt}
-
-
-[module/netspdeth]
-type = internal/network
-interface = enp0s31f6
-interval = 1.0
-format-connected = "<label-connected>"
-label-connected = " %downspeed:3% %upspeed:3% |"
-label-connected-foreground = ${colors.foreground-alt}
-label-connected-background = ${colors.background-alt}
-
-[module/eth]
-type = internal/network
-interface = enp3s0
 interval = 0.5
+label = " %percentage_used%%"
+label-foreground = #f09b56
+click-left = "gnome-terminal -e 'htop'"
 
-;format-connected-underline = #0088CC
-label-connected =  [ :   %upspeed% | :   %downspeed% ]
-;label-connected-foreground = #2aa198
+[module/openweathermap-detailed]
+type = custom/script
+exec = ~/.config/polybar/scripts/openweathermap-detailed.sh
+interval = 50
+label-font = 5
+click-left = "xdg-open https://yandex.ru/pogoda/omsk"
 
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = NET %ifname% disconnected
-;label-disconnected-foreground = NET ${colors.foreground-alt}
-
-;Required if <bar-progress> is used
-bar-progress-width = 5
-bar-progress-format = %{+u}%{+o}%fill%%{-u}%{-o}%indicator%%{+u}%{+o}%empty%%{-u}%{-o}
-bar-progress-indicator = |
-bar-progress-indicator-foreground = ${BAR.foreground}
-bar-progress-indicator-font = 3
-bar-progress-fill = █
-bar-progress-fill-foreground = #5a5
-bar-progress-fill-font = 3
-bar-progress-empty = █
-bar-progress-empty-foreground = #555
-bar-progress-empty-font = 3
-
-[module/date]
-type = internal/date
-interval = 1
-
-date = "%a %d %b"
-date-alt = "%a %Y/%m/%d"
-
-time = " %H:%M:%S"
-time-alt = " %H:%M"
-
-format-prefix = "  "
-format-prefix-foreground = ${colors.newcolor2}
-format-prefix-background = ${colors.background-alt}
-;format-underline = ${colors.foreground}
-
-label = %date%%time%
+[module/popup-calendar]
+type = custom/script
+format-prefix = " "
+label-font = 3
 label-foreground = ${colors.orange}
-label-background = ${colors.background-alt}
+exec = ~/.config/polybar/scripts/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
 
-[module/volume]
-type = internal/volume
+[module/network-traffic]
+type = custom/script
+label-font = 4
+exec = ~/.config/polybar/scripts/network-traffic.sh
+tail = true
+label-foreground = #66ff66
 
-MAX_VOL=130
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label=%output%
+format-underline = ${colors.Blue}
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.red}
-label-muted = ВЫКЛ
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = true
-bar-volume-indicator = ●
-bar-volume-indicator-font = 2
-bar-volume-indicator-foreground = #0088CC
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-
-[module/battery0]
-type = internal/battery
-battery = BAT0
-adapter = AC
-full-at = 90
-
-format-charging = "<animation-charging><label-charging>"
-;format-charging-underline = ${colors.foreground}
-label-charging-foreground = ${colors.foreground-alt}
-label-charging-background = ${colors.background-alt}
-
-format-discharging = "<ramp-capacity><label-discharging>"
-;format-discharging-underline = ${self.format-charging-underline}
-label-discharging-foreground = ${colors.foreground-alt}
-label-discharging-background = ${colors.background-alt}
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-prefix-background = ${colors.background-alt}
-;format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = " "
-ramp-capacity-0-foreground = ${colors.alert}
-ramp-capacity-1 = " "
-ramp-capacity-2 = " "
-ramp-capacity-foreground = ${colors.foreground-alt}
-ramp-capacity-background = ${colors.background-alt}
-
-animation-charging-0 = " "
-animation-charging-1 = " "
-animation-charging-2 = " "
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-background = ${colors.background-alt}
-animation-charging-framerate = 750
-
-[module/battery1]
-type = internal/battery
-battery = BAT1
-adapter = AC
-full-at = 90
-
-format-charging = "<animation-charging><label-charging>"
-;format-charging-underline = ${colors.foreground}
-label-charging-foreground = ${colors.foreground-alt}
-label-charging-background = ${colors.background-alt}
-
-format-discharging = "<ramp-capacity><label-discharging>"
-;format-discharging-underline = ${self.format-charging-underline}
-label-discharging-foreground = ${colors.foreground-alt}
-label-discharging-background = ${colors.background-alt}
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-prefix-background = ${colors.background-alt}
-;format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = " "
-ramp-capacity-0-foreground = ${colors.alert}
-ramp-capacity-1 = " "
-ramp-capacity-2 = " "
-ramp-capacity-foreground = ${colors.foreground-alt}
-ramp-capacity-background = ${colors.background-alt}
-
-animation-charging-0 = " "
-animation-charging-1 = " "
-animation-charging-2 = " "
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-background = ${colors.background-alt}
-animation-charging-framerate = 750
-
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = %{T4}%{T-}
-label-open-foreground = ${colors.secondary}
-label-close = cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = reboot
-menu-0-1 = power off
-menu-0-1-exec = shutdown -h now
+exec = ~/.config/polybar/scripts/pulseaudio-control.bash listen
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/scripts/pulseaudio-control.bash togmute
+click-middle = ~/.config/polybar/scripts/pulseaudio-control.bash next-sink
+scroll-up = ~/.config/polybar/scripts/pulseaudio-control.bash up
+scroll-down = ~/.config/polybar/scripts/pulseaudio-control.bash down
+label-padding = 2
+label-font = 4
+label-foreground = ${colors.foreground-alt}
 
 [settings]
 throttle-output = 5
@@ -737,4 +342,3 @@ compositing-border = over
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-

@@ -5,8 +5,53 @@ font pango:DejaVu Sans Mono Book 12
 floating_modifier $mod
 default_border pixel
 for_window [tiling] border pixel 3
-exec_always setxkbmap -option grp:shifts_toggle "us,ru"
-exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #000000 #000000 #ffffff #000000   #000000
+client.focused_inactive #000000 #000000 #ffffff #000000   #000000
+client.unfocused        #000000 #000000 #888888 #000000   #000000
+client.urgent           #000000 #000000 #ffffff #000000   #000000
+client.placeholder      #000000 #000000 #ffffff #000000   #000000
+client.background       #ffffff
+
+########################################################################
+########################################################################
+####
+####                   Workplaces layout 
+####
+########################################################################
+########################################################################
+
+########################################################################
+########################################################################
+####
+####                   Floated windows 
+####
+########################################################################
+########################################################################
+
+for_window [title="Calculator"] floating enable
+for_window [class="pavucontrol"] floating enable
+#for_window [class="^.*"] border pixel 1
+#for_window [class="vlc"] floating enable
+#for_window [class="mpv"] floating enable
+#for_window [class="vlc"] sticky enable
+
+########################################################################
+########################################################################
+####
+####                   HOTKEYS 
+####
+########################################################################
+########################################################################
+
+bindsym XF86MonBrightnessDown exec xbacklight -dec 7  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 7 
+
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -24,25 +69,23 @@ bindsym ctrl+space exec rofi -show run
 bindsym ctrl+Shift+1 exec $HOME/code/Shell/change_i3config_default.sh
 bindsym ctrl+Shift+2 exec $HOME/code/Shell/change_i3config_2.sh
 
-# start a ranger
-
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-#bindsym $mod+Shift+j move left
-#bindsym $mod+Shift+k move down
-#bindsym $mod+Shift+l move up
-#bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -51,7 +94,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym Mod1+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -75,9 +118,6 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym Mod1+1 workspace 1
@@ -110,6 +150,16 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym Mod1+g exec google-chrome-stable
+bindsym Mod1+t exec telegram-desktop
+bindsym Mod1+d exec discord
+bindsym Mod1+r exec "gnome-terminal -e 'ranger'"
+bindsym Mod1+w exec "gnome-terminal -e 'weechat'"
+
+bindsym --release $mod+p exec "scrot -m '/home/creator/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+bindsym --release Mod1+p exec "scrot -s '/home/creator/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+bindsym --release Mod1+Shift+p exec "scrot -u -d 4 '/home/creator/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -129,6 +179,12 @@ mode "resize" {
         bindsym Up resize shrink height 5 px or 5 ppt
         bindsym Right resize grow width 5 px or 5 ppt
 
+        # alternatively, same bindings, but for the arrow keys
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -136,75 +192,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id /home/creator/.config/polybar/launch.sh
-
-#bar {
-#status_command i3status
-#status_command  /home/dm/.config/i3/bar.sh
-#status_command py3status -c /home/dm/.config/i3/i3status.conf
-#tray_output primary
-#     
-#}
-
-# class                 border  backgr. text    indicator child_border
-client.focused          #000000 #000000 #ffffff #000000   #000000
-client.focused_inactive #000000 #000000 #ffffff #000000   #000000
-client.unfocused        #000000 #000000 #888888 #000000   #000000
-client.urgent           #000000 #000000 #ffffff #000000   #000000
-client.placeholder      #000000 #000000 #ffffff #000000   #000000
-client.background       #ffffff
-
-########################################################################
-########################################################################
-####
-####                   Workplaces layout 
-####
-########################################################################
-########################################################################
-
-########################################################################
-########################################################################
-####
-####                   Floated windows 
-####
-########################################################################
-########################################################################
-
-for_window [title="Calculator"] floating enable
-#for_window [class="^.*"] border pixel 1
-#for_window [class="vlc"] floating enable
-#for_window [class="mpv"] floating enable
-#for_window [class="vlc"] sticky enable
-
-########################################################################
-########################################################################
-####
-####                   HOTKEYS 
-####
-########################################################################
-########################################################################
-
-bindsym XF86MonBrightnessDown exec xbacklight -dec 7  # decrease screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 7 
-
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
-
-
-bindsym Mod1+g exec google-chrome-stable
-bindsym Mod1+t exec telegram-desktop
-bindsym Mod1+d exec discord
-bindsym Mod1+r exec "gnome-terminal -e 'ranger'"
-
-bindsym --release $mod+p exec "scrot -m '/home/creator/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
-bindsym --release Mod1+p exec "scrot -s '/home/creator/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
-bindsym --release Mod1+Shift+p exec "scrot -u -d 4 '/home/creator/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
-
 set $Locker "$HOME/code/Shell/lock.sh && sleep 2"
 set $Locker2 "i3lock -c 000000 && sleep 2"
 
-set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l)ock, (e)logout, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym Shift+l exec --no-startup-id $Locker2, mode "default"
@@ -232,10 +223,20 @@ bindsym $mod+Pause mode "$mode_system"
 #exec xrandr --output eDP1 --mode 2560x1440 --scale 0.7x0.7
 #exec xrandr --auto --output HDMI1 --mode 3440x1440 --above eDP1
 #exec compton --inactive-dim 0.1 --no-fading-openclose --inactive-dim-fixed --config /dev/null
-exec compton -CGb
-exec compton --opengl
-exec compton -f --vsync drm
+#exec compton -CGb
+#exec compton --opengl
+#exec compton -f --vsync drm
+exec compton --config ~/.config/compton.conf -b
 #exec nitrogen --restore
+
+exec_always setxkbmap -option grp:shifts_toggle "us,ru"
+exec_always --no-startup-id /home/creator/.config/polybar/launch.sh
+#exec_always feh --bg-scale ~/Pictures/3840x2160-2638864-minimalism-4k-best-of-wallpaper-for-desktop.jpg
+exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+#exec_always feh --bg-scale ~/Downloads/Yandex.disk/Загрузки/Хаббл/ngc2841.jpg
+
+exec --no-startup-id "dunst"
+
 
 #exec pa-applet
 #exec_always nm-applet
