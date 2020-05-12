@@ -1,5 +1,5 @@
 # CONFIGS
-I have a [installer](https://github.com/DONSIMON92/configs#installer)
+I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.sh "his code")
 
 ---
 ### Steps
@@ -12,7 +12,6 @@ I have a [installer](https://github.com/DONSIMON92/configs#installer)
 4. [rofi](https://github.com/DONSIMON92/configs#rofi "will transfer to the desired head") 
 5. [ranger](https://github.com/DONSIMON92/configs#ranger "will transfer to the desired head")
 6. [vim](https:github.com/DONSIMON92/configs#vim "will transfer to the desired head")
-7. [scripts](https://github.com/DONSIMON92/configs#scripts "will transfer to the desired head")
 
 ## I3WM
 
@@ -49,7 +48,10 @@ cp rofi/config ~/.config/rofi/config
 
 ## Ranger
 
--- nothing yet
++ create config file
+```
+ranger --copy-config=all
+```
 
 ## VIM
 
@@ -65,19 +67,11 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 + go to vim and enter the command `:PlugInstall`
 
-## Scripts
-
-+ 
-```
-
-```
-
 ## Installer
 
-run the script, then all previous steps are performed automatically
+OR you can download and run *installer*:
 ```
-cd  configs
-chmod +x install.sh
-./install.sh
+git clone https://github.com/DONSIMON92/configs.git
+cd configs
+sudo bash install.sh
 ```
-or `bash configs/install.sh`

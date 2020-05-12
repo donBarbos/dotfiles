@@ -13,6 +13,7 @@ set nocompatible
 set ignorecase " ics - поиск без учёта регистра символов
 set number
 set laststatus=2
+set noswapfile " отключение swap файлы
 syntax on
 
 colorscheme gruvbox
@@ -38,4 +39,5 @@ call plug#end()
 ""         HOTKEYS(mappings)
 ""
 """"""""""""""""""""""""""""""""""""""""
- map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
+nnoremap <F2> :set nonumber!<CR> 
