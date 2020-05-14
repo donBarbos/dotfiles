@@ -64,7 +64,7 @@ font-3 = FontAwesome5Free:style=Solid:pixelsize=11;3
 font-4 = FontAwesome5Brands:style=Solid:pixelsize=11;3
 font-5 = Weather Icons:size=12;1
 
-modules-left = sp0 i3 sp2 easteregg-pornhub sp2 fs1 sp2 memory sp2 cpu sp2 info-pingrtt sp2 network-traffic
+modules-left = sp0 i3 sp2 easteregg-pornhub sp2 fs1 sp2 memory sp2 cpu sp2 info-pingrtt sp2 network-traffic system-usb-mount
 modules-right = xbacklight sp2 numlock sp2 openweathermap-detailed sp2 pub-ip sp2 pulseaudio-control sp2 keyboard sp2 popup-calendar sp0 
 
 tray-position = right
@@ -102,6 +102,7 @@ click-left = "gnome-terminal -e 'ranger /home'"
 type = custom/script
 exec = ~/.config/polybar/scripts/info-pingrtt.sh
 interval = 2
+click-left = "xdg-open https://www.speedtest.net/"
 
 [module/easteregg-pornhub]
 type = custom/script
@@ -308,6 +309,14 @@ label-font = 4
 exec = ~/.config/polybar/scripts/network-traffic.sh
 tail = true
 label-foreground = #66ff66
+click-left = "xdg-open https://www.speedtest.net/"
+
+[module/system-usb-mount]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-usb-mount.sh
+interval = 2
+click-left = ~/.config/polybar/scripts/system-usb-mount.sh --mount &
+click-right = ~/.config/polybar/scripts/system-usb-mount.sh --unmount &
 
 [module/pulseaudio-control]
 type = custom/script
