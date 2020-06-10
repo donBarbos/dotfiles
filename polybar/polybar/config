@@ -1,0 +1,361 @@
+;====================================================
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background-alt = #2E3436
+foreground = #002B36
+foreground-alt = #ffffff
+alert = #FF0000
+newcolor = #e6b800
+for_dollar = #00e66b
+for_files = #099c64
+yellow = #ffff00
+Aqua = #00FFFF
+Blue = #0000FF
+orange = #ffa500
+
+[bar/example]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 24
+radius = 10.0
+;offset-x = 1%
+;offset-y = 1%
+fixed-center = true
+bottom = no
+
+foreground = ${colors.foreground-alt}
+background = ${colors.background-alt}
+
+line-size = 1
+line-color = #dfdfdf
+
+;border-size = 5
+border-top-size = 0
+border-bottom-size = 0
+border-left-size = 0
+border-right-size = 0
+;border-color = ${colors.background-alt}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Hack:pixelsize=11;3
+font-2 = "Wuncon Siji:pixelsize=11;3"
+font-1 = Weather Icons:style=Regular:size=11;3
+font-3 = FontAwesome5Free:style=Solid:pixelsize=11;3
+font-4 = FontAwesome5Brands:style=Solid:pixelsize=11;3
+font-5 = Weather Icons:size=12;1
+
+modules-left = sp0 i3 sp2 easteregg-pornhub sp2 fs1 sp2 memory sp2 cpu sp2 info-pingrtt sp2 network-traffic system-usb-mount
+modules-right = xbacklight sp2 numlock pulseaudio-microphone sp2 openweathermap-detailed sp2 pub-ip sp2 pulseaudio-control sp2 keyboard sp2 popup-calendar sp0 
+
+tray-position = right
+tray-padding = 0
+tray-detached = false
+tray-maxsize = 14
+;tray-transparent = false
+;pseudo-transparency = false
+tray-scale = 1.0
+tray-background = ${colors.background-alt}
+tray-foreground = ${colors.foreground-alt}
+tray-offset-x = 0
+tray-offset-y = 0
+
+wm-restack = i3
+
+;override-redirect = true
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+;cursor-scroll = ns-resize
+ 
+[module/fs1]
+type = custom/script
+exec = ~/.config/polybar/scripts/free_space_home.sh
+interval = 600
+label = %{T4}%{T-} %output%
+label-foreground = ${colors.for_files}
+format-underline = ${colors.for_files}
+click-left = "gnome-terminal -e 'ranger /home'"
+
+[module/info-pingrtt]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-pingrtt.sh
+interval = 2
+click-left = "xdg-open https://www.speedtest.net/"
+
+[module/easteregg-pornhub]
+type = custom/script
+exec = echo " hub "
+interval = 3600
+click-left = "firefox --private-window http://porno365.red/ &"
+
+format = <label>
+format-prefix = "  Porn "
+format-prefix-foreground = #ffffff
+format-prefix-background = #000000
+
+format-overline = #000000
+format-underline = #000000
+format-foreground = #000000
+format-background = #ffa500
+
+format-suffix = " "
+format-suffix-background = #000000
+format-suffix-foreground = #000000
+
+[module/pub-ip]
+type = custom/script
+click-left = exec xdg-open https://2ip.ru/ &
+exec = ~/.config/polybar/scripts/pub_ip_polybar.sh
+interval = 5
+label = %{T4}%{T-} %output%
+label-foreground = ${colors.foreground-alt}
+
+[module/btc-price]
+type = custom/script
+exec = ~/.config/polybar/scripts/btc_price_coinm.sh
+interval = 5
+label =  %output%
+
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/.config/polybar/scripts/arch_updates.sh
+interval = 100
+label = %{T4}%{T-} %output%
+label-foreground = ${colors.newcolor}
+format-underline = ${colors.newcolor}
+
+[module/sp1]
+type = custom/text
+content = " | "
+content-foreground = ${colors.foreground-alt}
+content-background = ${colors.background-alt}
+
+[module/sp0]
+type = custom/text
+content = " "
+content-foreground = ${colors.foreground-alt}
+content-background = ${colors.background-alt}
+
+[module/sp2]
+type = custom/text
+content = "  "
+content-foreground = #93A1A1
+content-background = ${colors.background-alt
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = false
+enable-click = true
+enable-scroll = false
+
+fuzzy-match = true
+ws-icon-0 = 1;♚
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+;ws-icon-default = 
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-foreground = ${colors.foreground-alt}
+label-mode-background = ${colors.background-alt}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-foreground = ${colors.Blue}
+label-focused-background = #BCC3C3
+label-focused-underline = ${colors.foreground-alt}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = ${self.label-focused-padding}
+label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-background = ${colors.background-alt}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-foreground = ${self.label-focused-background}
+label-visible-background = ${self.label-focused-foreground}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+label-separator =
+label-separator-padding = 0
+label-separator-foreground = #FFF
+
+[module/xbacklight]
+type = internal/xbacklight
+
+;format = "<label><bar>"
+;label = "  "
+format = "<label>"
+label = " %percentage%%"
+label-foreground = ${colors.foreground-alt}
+label-background = ${colors.background-alt}
+
+bar-width = 5
+bar-indicator = []
+bar-indicator-foreground = ${colors.foreground-alt}
+bar-indicator-background = ${colors.background-alt}
+bar-indicator-font = 1
+bar-fill = -
+bar-fill-font = 1
+bar-fill-foreground = ${colors.foreground-alt}
+bar-fill-background = ${colors.background-alt}
+bar-empty = -
+bar-empty-font = 1
+bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-background = ${colors.background-alt}
+
+[module/numlock]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+format = <label-indicator>
+
+label-indicator-padding = 0
+label-indicator-margin = 1
+label-indicator = "CAPS"
+label-indicator-foreground = #FCFC4C
+label-indicator-background = ${colors.alert}
+
+[module/keyboard]
+type = internal/xkeyboard
+
+format = <label-layout>
+
+label-layout = "%name%"
+label-layout-padding = 1
+label-layout-margin = 0
+label-layout-background = #bc99ed
+label-layout-foreground = #E4E439
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+label = " %percentage%%"
+label-foreground = #f09b56
+click-left = "gnome-terminal -e 'htop'"
+
+[module/memory]
+type = internal/memory
+interval = 0.5
+label = " %percentage_used%%"
+label-foreground = #f09b56
+click-left = "gnome-terminal -e 'htop'"
+
+[module/openweathermap-detailed]
+type = custom/script
+exec = ~/.config/polybar/scripts/openweathermap-detailed.sh
+interval = 50
+label-font = 5
+click-left = "xdg-open https://yandex.ru/pogoda/omsk"
+
+[module/popup-calendar]
+type = custom/script
+format-prefix = " "
+label-font = 3
+label-foreground = ${colors.orange}
+exec = ~/.config/polybar/scripts/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
+
+[module/network-traffic]
+type = custom/script
+label-font = 4
+exec = ~/.config/polybar/scripts/network-traffic.sh
+tail = true
+label-foreground = #66ff66
+click-left = "xdg-open https://www.speedtest.net/"
+
+[module/system-usb-mount]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-usb-mount.sh
+interval = 2
+click-left = ~/.config/polybar/scripts/system-usb-mount.sh --mount &
+click-right = ~/.config/polybar/scripts/system-usb-mount.sh --unmount &
+
+[module/pulseaudio-microphone]
+type = custom/script
+exec = ~/.config/polybar/scripts/pulseaudio-microphone.sh
+tail = true
+click-left = ~/.config/polybar/scripts/pulseaudio-microphone.sh --toggle &
+label-font = 4
+format-underline = ${colors.Blue}
+
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+label=%output%
+format-underline = ${colors.Blue}
+
+exec = ~/.config/polybar/scripts/pulseaudio-control.bash listen
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/scripts/pulseaudio-control.bash togmute
+click-middle = ~/.config/polybar/scripts/pulseaudio-control.bash next-sink
+scroll-up = ~/.config/polybar/scripts/pulseaudio-control.bash up
+scroll-down = ~/.config/polybar/scripts/pulseaudio-control.bash down
+label-padding = 2
+label-font = 4
+label-foreground = ${colors.foreground-alt}
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+;compositing-underline = over
+compositing-border = over
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
