@@ -3,7 +3,7 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 
 ---
 
-###POLYBAR SETTINGS
+### POLYBAR SETTINGS
 ![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/illustration.png)
 ---
 ### Steps
