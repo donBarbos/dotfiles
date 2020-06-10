@@ -2,7 +2,7 @@
 I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.sh "his code")
 
 ---
-![Project illustration](https://github.com/DONSIMON92/configs/blob/master/illustration)
+![Project illustration](https://github.com/DONSIMON92/configs/blob/master/illustration.png)
 ---
 ### Steps
 
