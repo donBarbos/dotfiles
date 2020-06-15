@@ -15,7 +15,7 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 3. [slim](https://github.com/DONSIMON92/configs#slim "will transfer to the desired head")
 4. [rofi](https://github.com/DONSIMON92/configs#rofi "will transfer to the desired head") 
 5. [ranger](https://github.com/DONSIMON92/configs#ranger "will transfer to the desired head")
-6. [vim](https:github.com/DONSIMON92/configs#vim "will transfer to the desired head")
+6. [vim](https://github.com/DONSIMON92/configs#vim "will transfer to the desired head")
 
 ## I3WM
 
