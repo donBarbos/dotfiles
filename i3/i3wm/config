@@ -6,6 +6,9 @@ floating_modifier $mod
 default_border pixel
 for_window [tiling] border pixel 3
 
+# for i3-gaps
+gaps inner 5
+gaps outer 5
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #000000 #000000 #ffffff #000000   #000000
@@ -33,6 +36,7 @@ client.background       #ffffff
 
 for_window [title="Calculator"] floating enable
 for_window [class="pavucontrol"] floating enable
+for_window [class="Yad" title="yad-calendar"] floating enable
 #for_window [class="^.*"] border pixel 1
 #for_window [class="vlc"] floating enable
 #for_window [class="mpv"] floating enable
@@ -51,7 +55,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 7
 
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioMute exec amixer set Master unmute # mute sound
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -68,6 +72,10 @@ bindsym ctrl+space exec rofi -show run
 # start scripts for change config file i3wm
 bindsym ctrl+Shift+1 exec $HOME/code/Shell/change_i3config_default.sh
 bindsym ctrl+Shift+2 exec $HOME/code/Shell/change_i3config_2.sh
+
+# set keys to change gaps
+bindsym $mod+z		    gaps outer current plus 5; gaps inner current plus 5
+bindsym $mod+Shift+z	gaps outer current minus 5; gaps inner current minus 5
 
 # change focus
 bindsym $mod+h focus left
