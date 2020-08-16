@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/creator/.config/polybar/scripts'
+let g:netrw_dirhist_8='/home/creator/code/LaTeX'
+let g:netrw_dirhist_7='/home/creator/code'
+let g:netrw_dirhist_6='/home/creator/Downloads/Vimix-4k/Vimix/icons'
+let g:netrw_dirhist_5='/home/creator/Downloads/Vimix-4k/Vimix'
+let g:netrw_dirhist_4='/home/creator/.config/i3'
+let g:netrw_dirhist_3='/home/creator/.config'
+let g:netrw_dirhist_2='/home/creator/.config/rofi'
+let g:netrw_dirhist_1='/home/creator/.vim'
+let g:netrw_dirhist_0='/home/creator/.ssh'
