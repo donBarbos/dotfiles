@@ -3,8 +3,12 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 
 ---
 
-### POLYBAR SETTINGS
-![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/illustration.png)
+### polybar settings
+![Polybar illustration](https://github.com/DONSIMON92/configs/polybar/blob/master/polybar-view.png)
+
+### and vim view
+![vim illustration](https://github.com/DONSIMON92/configs/blob/master/vim-view.png)
+
 ---
 ### Steps
 
