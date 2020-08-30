@@ -4,7 +4,8 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 ---
 
 ### polybar settings
-![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view.png)
+![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view1.png)
+![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view2.png)
 
 ### and vim view
 ![vim illustration](https://github.com/DONSIMON92/configs/blob/master/vim-view.png)
