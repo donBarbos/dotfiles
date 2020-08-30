@@ -1,6 +1,6 @@
 #!/bin/sh
 
-HOST=23.52.30.209
+HOST=104.248.27.33
 
 if ! ping=$(ping -n -c 1 -W 1 $HOST); then
     echo " ping failed"

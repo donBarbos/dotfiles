@@ -16,13 +16,14 @@
 ;=====================================================
 
 [colors]
-background-alt = #2E3436
+background-alt = #002E3436
 foreground = #002B36
 foreground-alt = #ffffff
 alert = #FF0000
 newcolor = #e6b800
 for_dollar = #00e66b
 for_files = #099c64
+for_vpn = #29A6D2
 yellow = #ffff00
 Aqua = #00FFFF
 Blue = #0000FF
@@ -57,14 +58,14 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Hack:pixelsize=11;3
-font-2 = "Wuncon Siji:pixelsize=11;3"
-font-1 = Weather Icons:style=Regular:size=11;3
-font-3 = FontAwesome5Free:style=Solid:pixelsize=11;3
-font-4 = FontAwesome5Brands:style=Solid:pixelsize=11;3
-font-5 = Weather Icons:size=12;1
+font-0 = Hack:pixelsize=11.7;4
+font-2 = "Wuncon Siji:pixelsize=12;4"
+font-1 = Weather Icons:style=Regular:size=12;4
+font-3 = FontAwesome5Free:style=Solid:pixelsize=12;4
+font-4 = FontAwesome5Brands:style=Solid:pixelsize=12;4
+font-5 = Weather Icons:size=13;1
 
-modules-left = sp0 i3 sp2 easteregg-pornhub sp2 fs1 sp2 memory sp2 cpu sp2 info-pingrtt sp2 network-traffic system-usb-mount
+modules-left = sp0 i3 sp2 fs1 sp2 info-pingrtt sp2 vpn-wireguard-wg sp2 memory sp2 cpu  sp2 system-usb-mount
 modules-right = xbacklight sp2 numlock pulseaudio-microphone sp2 openweathermap-detailed sp2 pub-ip sp2 pulseaudio-control sp2 keyboard sp2 popup-calendar sp0 
 
 tray-position = right
@@ -96,7 +97,15 @@ interval = 600
 label = %{T4}%{T-} %output%
 label-foreground = ${colors.for_files}
 format-underline = ${colors.for_files}
-click-left = "gnome-terminal -e 'ranger /home'"
+click-left = "termite -e 'ranger /home'"
+
+[module/vpn-wireguard-wg]
+type = custom/script
+exec = ~/.config/polybar/scripts/vpn-wireguard-wg.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/vpn-wireguard-wg.sh --toggle &
+label-font = 4
+label-foreground = ${colors.for_vpn}
 
 [module/info-pingrtt]
 type = custom/script

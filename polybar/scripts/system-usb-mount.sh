@@ -9,7 +9,7 @@ case "$1" in
 
             # mountpoint=$(udisksctl mount --no-user-interaction -b $mount)
             # mountpoint=$(echo $mountpoint | cut -d " " -f 4 | tr -d ".")
-            gnome-terminal -e "bash -lc 'ranger $mountpoint'" &
+            termite -e "zsh -lc 'ranger $mountpoint'" &
         done
         ;;
     --unmount)
