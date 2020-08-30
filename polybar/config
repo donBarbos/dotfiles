@@ -58,7 +58,7 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Hack:pixelsize=11.7;4
+font-0 = Hack:pixelsize=11;4
 font-2 = "Wuncon Siji:pixelsize=12;4"
 font-1 = Weather Icons:style=Regular:size=12;4
 font-3 = FontAwesome5Free:style=Solid:pixelsize=12;4

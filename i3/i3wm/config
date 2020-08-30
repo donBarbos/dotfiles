@@ -161,8 +161,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym Mod1+g exec google-chrome-stable
 bindsym Mod1+t exec telegram-desktop
 bindsym Mod1+d exec discord
-bindsym Mod1+r exec "gnome-terminal -e 'ranger'"
-bindsym Mod1+w exec "gnome-terminal -e 'weechat'"
+bindsym Mod1+r exec "termite -e 'ranger'"
+bindsym Mod1+w exec "termite -e 'weechat'"
 
 bindsym --release $mod+p exec "scrot -m '/home/creator/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
 bindsym --release Mod1+p exec "scrot -s '/home/creator/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
@@ -233,7 +233,7 @@ exec --no-startup-id xautolock -detectsleep -time 15 -locker 'systemctl suspend'
 #exec xrandr --auto --output HDMI1 --mode 3440x1440 --above eDP1
 #exec compton --inactive-dim 0.1 --no-fading-openclose --inactive-dim-fixed --config /dev/null
 #exec compton -CGb
-#exec compton --opengl
+exec compton --opengl
 #exec compton -f --vsync drm
 exec compton --config ~/.config/compton.conf -b
 #exec nitrogen --restore
@@ -241,7 +241,8 @@ exec compton --config ~/.config/compton.conf -b
 exec_always setxkbmap -option grp:shifts_toggle "us,ru"
 exec_always --no-startup-id /home/creator/.config/polybar/launch.sh
 #exec_always feh --bg-scale ~/Pictures/3840x2160-2638864-minimalism-4k-best-of-wallpaper-for-desktop.jpg
-exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+exec_always feh --bg-scale ~/Pictures/archwallapper.png
+#exec_always feh --bg-scale ~/Pictures/NGC\ 2841.jpg
 #exec_always feh --bg-scale ~/Downloads/Yandex.disk/Загрузки/Хаббл/ngc2841.jpg
 
 exec --no-startup-id "dunst"
