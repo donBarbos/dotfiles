@@ -13,7 +13,7 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 ---
 ### Steps
 
-> *Complete the following tasks to configure your system.*
+> *Complete the following tasks or use the [installer](https://github.com/DONSIMON92/configs#quick installation "will transfer to the desired head") to configure your system.*
 
 1. [i3wm](https://github.com/DONSIMON92/configs#i3wm "will transfer to the desired head")
 2. [polybar](https://github.com/DONSIMON92/configs#polybar "will transfer to the desired head")
@@ -21,29 +21,31 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 4. [rofi](https://github.com/DONSIMON92/configs#rofi "will transfer to the desired head") 
 5. [ranger](https://github.com/DONSIMON92/configs#ranger "will transfer to the desired head")
 6. [vim](https://github.com/DONSIMON92/configs#vim "will transfer to the desired head")
+7. [quick installation](https://github.com/DONSIMON92/configs#quick installation "will transfer to the desired head")
 
-## I3WM
 
-+ copy config file and other scripts
-```
-cp i3/i3wm/config ~/.config/i3/config && mkdir ~/code && mkdir ~/Pictures && mkdir ~/code/Shell && cp i3/change_i3config_default.sh ~/code/Shell/change_i3config_default.sh && cp i3/change_i3config_2.sh ~/code/Shell/change_i3config_2.sh && cp i3/lock.sh ~/code/Shell/lock.sh && cp i3/wallpaper.jpg ~/Pictures/wallpaper.jpg
-```
-
-## POLYBAR
+## i3-gaps
 
 + copy config file and other scripts
 ```
-cp -r polybar ~/.config/polybar
+cp i3/i3wm/config ~/.config/i3/config && mkdir -p ~/code/Shell && mkdir -p ~/Pictures/screenshots &&cp i3/change_i3config_default.sh ~/code/Shell/change_i3config_default.sh && cp i3/change_i3config_2.sh ~/code/Shell/change_i3config_2.sh && cp i3/lock.sh ~/code/Shell/lock.sh && cp i3/archwallapper.png ~/Pictures/archwallapper.png && cp i3/NGC\ 2841.jpg ~/Pictures/NGC\ 2841.jpg && chmod +x ~/code/Shell/*
 ```
 
-## SLiM
+## polybar
+
++ copy config file and other scripts && change modification for scripts
+```
+cp -r polybar ~/.config/ && chmod +x ~/.config/polybar/scripts/*
+```
+
+## slim
 
 + copy the configuration files to the directory: */usr/share/slim/themes/default*
 ```
-sudo cp -r slim/default /usr/share/slim/themes/default
+sudo cp -r slim/default /usr/share/slim/themes/
 ```
 
-## Rofi
+## rofi
 
 + you can preview and apply themes for rofi with
 ```
@@ -55,18 +57,18 @@ rofi-theme-selector
 cp rofi/config ~/.config/rofi/config
 ```
 
-## Ranger
+## ranger
 
 + create config file
 ```
 ranger --copy-config=all
 ```
 
-## VIM
+## vim
 
 + copy *.vimrc* and *.vim/*
 ```
-cp .vimrc ~/.vimrc && cp -r .vim ~/.vim 
+cp .vimrc ~/.vimrc
 ```
 
 + install [vim-plug](https://github.com/junegunn/vim-plug "github link")
@@ -76,7 +78,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 + go to vim and enter the command `:PlugInstall`
 
-## Installer
+## quick installation
 
 OR you can download and run *installer*:
 ```
