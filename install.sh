@@ -1,7 +1,7 @@
 #!/bin/bash
 #run from sudo because SLIM needs superuser rights
 
-mkdir -vp ~/.config/{i3,polybar,slim,rofi,ranger} #directories created
+mkdir -vp ~/.config/{i3,slim,rofi,ranger} #directories created
 mkdir -vp ~/code/Shell
 mkdir -vp ~/Pictures/screenshots
 
@@ -13,7 +13,7 @@ cp -v i3/archwallapper.png ~/Pictures/archwallapper.png #wallpapers
 cp -v i3/NGC\ 2841.jpg ~/Pictures/NGC\ 2841.jpg
 
 #polybar
-cp -vr polybar ~/.config/polybar
+cp -vr polybar ~/.config/
 rm -f ~/.config/polybar/{polybar-view1.png,polybar-view2.png}
 
 #zsh

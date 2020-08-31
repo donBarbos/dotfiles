@@ -13,7 +13,7 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 ---
 ### Steps
 
-> *Complete the following tasks or use the [installer](https://github.com/DONSIMON92/configs#quick installation "will transfer to the desired head") to configure your system.*
+> *Complete the following tasks or use the [installer](https://github.com/DONSIMON92/configs#quick\ installation "will transfer to the desired head") to configure your system.*
 
 1. [i3wm](https://github.com/DONSIMON92/configs#i3wm "will transfer to the desired head")
 2. [polybar](https://github.com/DONSIMON92/configs#polybar "will transfer to the desired head")
@@ -21,7 +21,7 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 4. [rofi](https://github.com/DONSIMON92/configs#rofi "will transfer to the desired head") 
 5. [ranger](https://github.com/DONSIMON92/configs#ranger "will transfer to the desired head")
 6. [vim](https://github.com/DONSIMON92/configs#vim "will transfer to the desired head")
-7. [quick installation](https://github.com/DONSIMON92/configs#quick installation "will transfer to the desired head")
+7. [quick installation](https://github.com/DONSIMON92/configs#quick\ installation "will transfer to the desired head")
 
 
 ## i3-gaps
