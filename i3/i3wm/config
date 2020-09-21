@@ -67,7 +67,7 @@ bindsym ctrl+q kill
 
 # start dmenu (a program launcher)
 # bindcode $mod+40 exec rofi -show run
-bindsym ctrl+space exec rofi -show run
+bindsym ctrl+space exec rofi -show drun icon-theme "Papirus" -show-icons
 
 # start scripts for change config file i3wm
 bindsym ctrl+Shift+1 exec $HOME/code/Shell/change_i3config_default.sh
@@ -161,6 +161,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym Mod1+g exec google-chrome-stable
 bindsym Mod1+t exec telegram-desktop
 bindsym Mod1+d exec discord
+#bindsym Mod1+s exec spotify
 bindsym Mod1+r exec "termite -e 'ranger'"
 bindsym Mod1+w exec "termite -e 'weechat'"
 
@@ -219,7 +220,7 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
-exec --no-startup-id xautolock -detectsleep -time 15 -locker 'systemctl suspend'
+exec --no-startup-id xautolock -detectsleep -time 5 -locker 'systemctl suspend'
 
 ########################################################################
 ########################################################################
@@ -233,9 +234,9 @@ exec --no-startup-id xautolock -detectsleep -time 15 -locker 'systemctl suspend'
 #exec xrandr --auto --output HDMI1 --mode 3440x1440 --above eDP1
 #exec compton --inactive-dim 0.1 --no-fading-openclose --inactive-dim-fixed --config /dev/null
 #exec compton -CGb
-exec compton --opengl
+#exec compton --opengl
 #exec compton -f --vsync drm
-exec compton --config ~/.config/compton.conf -b
+#exec compton --config ~/.config/compton.conf -b
 #exec nitrogen --restore
 
 exec_always setxkbmap -option grp:shifts_toggle "us,ru"
