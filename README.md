@@ -9,13 +9,13 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 
 ## my archlinux and vim
 <p align="center">
-<img src="(https://github.com/DONSIMON92/configs/blob/master/screenshots/worktop1.png">
-<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/vim1.png">
+<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop1.png">
+<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/vim1.png">
 </p>
 
 <p align="center">
-<img src="(https://github.com/DONSIMON92/configs/blob/master/screenshots/worktop2.png">
-<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/vim2.png">
+<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop2.png">
+<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/vim2.png">
 </p>
 
 ---
