@@ -8,12 +8,15 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 ![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view2.png)
 
 ## my archlinux and vim
+<p align="center">
+<img src="(https://github.com/DONSIMON92/configs/blob/master/screenshots/worktop1.png">
+<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/vim1.png">
+</p>
 
-![worktop illustration](https://github.com/DONSIMON92/configs/blob/master/screenshots/worktop1.png)
-![worktop illustration](https://github.com/DONSIMON92/configs/blob/master/screenshots/worktop2.png "what wm do i have")
-
-![vim illustration](https://github.com/DONSIMON92/configs/blob/master/screenshots/vim1.png)
-![vim illustration](https://github.com/DONSIMON92/configs/blob/master/screenshots/vim2.png "what vim do i have")
+<p align="center">
+<img src="(https://github.com/DONSIMON92/configs/blob/master/screenshots/worktop2.png">
+<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/vim2.png">
+</p>
 
 ---
 ### Steps
