@@ -11,6 +11,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set cursorline
+set mouse=ar
 
 set ignorecase " ics - поиск без учёта регистра символов
 set number
@@ -43,12 +44,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline' "доп. информацию (похоже на OhMyTmux)
+Plug 'https://github.com/ryanoasis/vim-devicons' "emoji for vim-airline
+Plug 'https://github.com/adelarsq/vim-devicons-emoji'
 Plug 'powerline/powerline'
 Plug 'ryanoasis/vim-devicons' "подключение красивых иконок
 Plug 'lervag/vimtex' "для работы с LaTeX
 Plug 'godlygeek/tabular' "для работы с markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.vim' "будет паралельно отображаться файл в браузере
+Plug 'junegunn/vim-github-dashboard' "Обзор событий GitHub :GHD! matz
+Plug 'junegunn/vim-emoji' " emoji for GitHub
 " colorscheme
 Plug 'morhetz/gruvbox'
 
@@ -78,4 +83,3 @@ let g:Powerline_symbols = 'unicode'
 let g:airline_powerline_fonts=1
 let g:airline_symbols_ascii = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-
