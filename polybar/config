@@ -157,7 +157,7 @@ format-underline = ${colors.newcolor}
 
 [module/sp1]
 type = custom/text
-content = " | "
+content = "  "
 content-foreground = ${colors.foreground-alt}
 content-background = ${colors.background-alt}
 
