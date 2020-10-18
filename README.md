@@ -7,8 +7,11 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 ![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view1.png)
 ![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view2.png)
 
-## my archlinux 
-![worktop illustration](https://github.com/DONSIMON92/configs/blob/master/worktop.png)
+## my archlinux and vim
+![worktop illustration](https://github.com/DONSIMON92/configs/blob/master/screenshots/worktop1.png)
+![vim illustration](https://github.com/DONSIMON92/configs/blob/master/screenshots/vim1.png)
+![worktop illustration](https://github.com/DONSIMON92/configs/blob/master/screenshots/worktop2.png)
+![vim illustration](https://github.com/DONSIMON92/configs/blob/master/screenshots/vim2.png)
 
 ---
 ### Steps

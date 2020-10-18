@@ -202,11 +202,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 set $Locker "$HOME/code/Shell/lock.sh && sleep 2"
+set $Locker1 "i3lock-fancy"
 set $Locker2 "i3lock -c 000000 && sleep 2"
 
 set $mode_system System (l)ock, (e)logout, (r)eboot, (s)uspend, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym l exec --no-startup-id $Locker1, mode "default"
     bindsym Shift+l exec --no-startup-id $Locker2, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
@@ -235,6 +236,7 @@ exec --no-startup-id xautolock -detectsleep -time 5 -locker 'systemctl suspend'
 #exec compton --inactive-dim 0.1 --no-fading-openclose --inactive-dim-fixed --config /dev/null
 #exec compton -CGb
 #exec compton --opengl
+exec compton
 #exec compton -f --vsync drm
 #exec compton --config ~/.config/compton.conf -b
 #exec nitrogen --restore
