@@ -65,8 +65,8 @@ font-3 = FontAwesome5Free:style=Solid:pixelsize=12;4
 font-4 = FontAwesome5Brands:style=Solid:pixelsize=12;4
 font-5 = Weather Icons:size=13;1
 
-modules-left = sp0 i3 sp2 fs1 sp2 info-pingrtt sp2 vpn-wireguard-wg sp2 memory sp2 cpu  sp2 system-usb-mount
-modules-right = xbacklight sp2 numlock pulseaudio-microphone sp2 openweathermap-detailed sp2 pub-ip sp2 pulseaudio-control sp2 keyboard sp2 popup-calendar sp0 
+modules-left = sp1 i3 sp2 fs1 sp2 system-usb-mount
+modules-right = xbacklight sp2 numlock openweathermap-detailed sp2 pub-ip sp2 pulseaudio-control sp2 keyboard sp2 popup-calendar sp1
 
 tray-position = right
 tray-padding = 0
