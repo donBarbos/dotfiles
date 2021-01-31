@@ -110,4 +110,4 @@ source $ZSH/oh-my-zsh.sh
 
 # exports
 export EDITOR='vim'
-export PATH="/home/creator/.local/bin:$PATH"
+export PATH="/home/$USER/.local/bin:$PATH"
