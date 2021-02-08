@@ -19,18 +19,18 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 </p>
 
 ---
-### Steps
+### Table of contents
 
 > *Complete the following tasks or use the [installer](https://github.com/DONSIMON92/configs#quick-installation "will transfer to the desired head") to configure your system.*
 
-0. [quick installation](https://github.com/DONSIMON92/configs#quick-installation "will transfer to the desired head")
-1. [i3wm](https://github.com/DONSIMON92/configs#i3wm "will transfer to the desired head")
-2. [bspwm](https://github.com/DONSIMON92/configs#bspwm "will transfer to the desired head")
-3. [polybar](https://github.com/DONSIMON92/configs#polybar "will transfer to the desired head")
-4. [slim](https://github.com/DONSIMON92/configs#slim "will transfer to the desired head")
-5. [rofi](https://github.com/DONSIMON92/configs#rofi "will transfer to the desired head") 
-6. [ranger](https://github.com/DONSIMON92/configs#ranger "will transfer to the desired head")
-7. [vim](https://github.com/DONSIMON92/configs#vim "will transfer to the desired head")
++ [quick installation](https://github.com/DONSIMON92/configs#quick-installation "will transfer to the desired head")
++ [i3wm](https://github.com/DONSIMON92/configs#i3wm "will transfer to the desired head")
++ [bspwm](https://github.com/DONSIMON92/configs#bspwm "will transfer to the desired head")
++ [polybar](https://github.com/DONSIMON92/configs#polybar "will transfer to the desired head")
++ [slim](https://github.com/DONSIMON92/configs#slim "will transfer to the desired head")
++ [rofi](https://github.com/DONSIMON92/configs#rofi "will transfer to the desired head") 
++ [ranger](https://github.com/DONSIMON92/configs#ranger "will transfer to the desired head")
++ [vim](https://github.com/DONSIMON92/configs#vim "will transfer to the desired head")
 
 
 ## i3-gaps
