@@ -1,6 +1,4 @@
 # CONFIGS
-I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.sh "his code")
-
 ---
 
 ### polybar settings
@@ -23,7 +21,6 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 
 > *Complete the following tasks or use the [installer](https://github.com/DONSIMON92/configs#quick-installation "will transfer to the desired head") to configure your system.*
 
-+ [quick installation](https://github.com/DONSIMON92/configs#quick-installation "will transfer to the desired head")
 + [i3wm](https://github.com/DONSIMON92/configs#i3wm "will transfer to the desired head")
 + [bspwm](https://github.com/DONSIMON92/configs#bspwm "will transfer to the desired head")
 + [polybar](https://github.com/DONSIMON92/configs#polybar "will transfer to the desired head")
@@ -31,51 +28,52 @@ I have a [installer](https://github.com/DONSIMON92/configs/blob/master/install.s
 + [rofi](https://github.com/DONSIMON92/configs#rofi "will transfer to the desired head") 
 + [ranger](https://github.com/DONSIMON92/configs#ranger "will transfer to the desired head")
 + [vim](https://github.com/DONSIMON92/configs#vim "will transfer to the desired head")
++ [quick installation](https://github.com/DONSIMON92/configs#quick-installation "will transfer to the desired head")
 
 
 ## i3-gaps
 
-+ copy config file and other scripts
+copy config file and other scripts
 ```
 cp i3/i3wm/config ~/.config/i3/config && mkdir -p ~/code/Shell && mkdir -p ~/Pictures/screenshots &&cp i3/change_i3config_default.sh ~/code/Shell/change_i3config_default.sh && cp i3/change_i3config_2.sh ~/code/Shell/change_i3config_2.sh && cp i3/lock.sh ~/code/Shell/lock.sh && cp i3/archwallapper.png ~/Pictures/archwallapper.png && cp i3/NGC\ 2841.jpg ~/Pictures/NGC\ 2841.jpg && chmod +x ~/code/Shell/*
 ```
 
 ## bspwm
 
-+ copy config folders
+copy config folders
 ```
 cp bspwmrc ~/.config/ && cp sxhkdrc ~/.config/ && chmod +x bspwm
 ```
 
 ## polybar
 
-+ copy config file and other scripts && change modification for scripts
+copy config file and other scripts && change modification for scripts
 ```
 cp -r polybar ~/.config/ && chmod +x ~/.config/polybar/scripts/*
 ```
 
 ## slim
 
-+ copy the configuration files to the directory: */usr/share/slim/themes/default*
+copy the configuration files to the directory: */usr/share/slim/themes/default*
 ```
 sudo cp -r slim/default /usr/share/slim/themes/
 ```
 
 ## rofi
 
-+ you can preview and apply themes for rofi with
+you can preview and apply themes for rofi with
 ```
 rofi-theme-selector
 ```
 
-+ or you can copy config file
+or you can copy config file
 ```
 cp rofi/config ~/.config/rofi/config
 ```
 
 ## ranger
 
-+ create config file
+create config file
 ```
 ranger --copy-config=all
 ```
