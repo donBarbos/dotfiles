@@ -9,7 +9,6 @@ set expandtab
 set showmatch
 set hlsearch
 set incsearch
-set ignorecase
 set cursorline
 set mouse=ar
 
