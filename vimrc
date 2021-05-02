@@ -12,6 +12,7 @@ set hlsearch
 set incsearch
 set cursorline
 set mouse=ar
+set ttymouse=xterm2
 
 set ignorecase " ics - поиск без учёта регистра символов
 set number
