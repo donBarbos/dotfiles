@@ -29,6 +29,14 @@ set encoding=utf-8 "Ставит кодировку UTF-8
 set nocompatible "Отключает обратную совместимость с Vi
 set conceallevel=1
 
+if !has('gui_running') " lightline settings
+  set t_Co=256
+endif
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
+set noshowmode
+
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 colorscheme gruvbox
 set background=dark
@@ -46,11 +54,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline' "доп. информацию (похоже на OhMyTmux)
-Plug 'https://github.com/ryanoasis/vim-devicons' "emoji for vim-airline
-Plug 'https://github.com/adelarsq/vim-devicons-emoji'
-Plug 'powerline/powerline'
-Plug 'ryanoasis/vim-devicons' "подключение красивых иконок
+Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular' "для работы с markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.vim' "будет паралельно отображаться файл в браузере
@@ -92,7 +96,3 @@ let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 
 let g:mkdp_auto_start = 1 "автоматическое открытие браузера при попытки открыть markdown
-let g:Powerline_symbols = 'unicode'
-let g:airline_powerline_fonts=1
-let g:airline_symbols_ascii = 1
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
