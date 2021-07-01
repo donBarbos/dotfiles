@@ -1,16 +1,11 @@
-# CONFIGS
+# DOTFILES
 ---
 
-### polybar settings
+## polybar
 ![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view1.png)
 ![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view2.png)
 
 ## my archlinux and vim
-<p align="center">
-<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop1.png">
-<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/vim1.png">
-</p>
-
 <p align="center">
 <img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop2.png">
 <img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/vim2.png">
