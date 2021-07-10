@@ -54,7 +54,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs'
-Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular' "для работы с markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.vim' "будет паралельно отображаться файл в браузере
@@ -64,6 +63,7 @@ Plug 'lervag/vimtex' "для работы с LaTeX
 Plug 'sirver/ultisnips' "для создания сниппетов
 " colorscheme
 Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -88,6 +88,14 @@ let g:tex_flavor = 'latex' "Уточняем какой Тех
 let g:vimtex_view_method = 'mupdf'
 let g:vimtex_quickfix_mode = 0
 let g:tex_conceal = 'abdmg' "настраивает маскировку
+
+let g:VM_default_mappings = 0
+let g:VM_leader = ','
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = ''           " replace C-n
+let g:VM_maps['Find Subword Under'] = ''           " replace visual C-n
+let g:VM_maps["Select Cursor Down"] = '<C-Down>'      " start selecting down
+let g:VM_maps["Select Cursor Up"]   = '<C-Up>'        " start selecting up
 
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
