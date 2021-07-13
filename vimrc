@@ -61,6 +61,7 @@ Plug 'junegunn/vim-github-dashboard' "Обзор событий GitHub :GHD! mat
 Plug 'junegunn/vim-emoji' " emoji for GitHub
 Plug 'lervag/vimtex' "для работы с LaTeX
 Plug 'sirver/ultisnips' "для создания сниппетов
+Plug 'cespare/vim-toml' "для поддержки синтаксиса toml
 " colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
