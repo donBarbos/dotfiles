@@ -1,17 +1,12 @@
-# DOTFILES
----
+<h1 align="center">DOTFILES</h1>
 
-## polybar
-![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view1.png)
-![Polybar illustration](https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view2.png)
+<h2 align="center">polybar</h2>
+<img src="https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view1.png">
+<img src="https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view2.png">
 
-## my archlinux and vim
-<p align="center">
+<h2 align="center">my archlinux and vim</h2>
 <img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop2.png">
 <img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/vim2.png">
-</p>
-
----
 
 > *Complete the following tasks or use the [installer](https://github.com/DONSIMON92/configs#quick-installation "will transfer to the desired head") to configure your system.*
 
