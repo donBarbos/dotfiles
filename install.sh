@@ -24,6 +24,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 cp -v vimrc ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+cp -r ~/.vim/plugged/gruvbox/colors ~/.vim/
 
 #slim
 sudo cp -vr slim/default /usr/share/slim/themes/
