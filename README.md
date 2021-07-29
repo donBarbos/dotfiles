@@ -1,8 +1,8 @@
 <h1 align="center">DOTFILES</h1>
 
 <h2 align="center">polybar</h2>
-<img src="https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view1.png">
-<img src="https://github.com/DONSIMON92/configs/blob/master/polybar/polybar-view2.png">
+<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view1.png">
+<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view2.png">
 
 <h2 align="center">my archlinux and vim</h2>
 <img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop2.png">
@@ -21,7 +21,7 @@ cp i3/i3wm/config ~/.config/i3/config && mkdir -p ~/code/Shell && mkdir -p ~/Pic
 
 copy config folders
 ```
-cp bspwmrc ~/.config/ && cp sxhkdrc ~/.config/ && chmod +x bspwm
+cp bspwmrc ~/.config/ && cp sxhkdrc ~/.config/ && chmod +x ~/.config/bspwm/bspwmrc
 ```
 
 ## polybar
@@ -52,7 +52,7 @@ cp rofi/config ~/.config/rofi/config
 
 ## ranger
 
-create config file
+generate config file
 ```
 ranger --copy-config=all
 ```
@@ -75,7 +75,5 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 OR you can download and run *installer*:
 ```
-git clone https://github.com/DONSIMON92/configs.git
-cd configs
 sudo bash install.sh
 ```
