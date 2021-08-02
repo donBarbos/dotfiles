@@ -124,3 +124,9 @@ alias vim='nvim'
 export EDITOR='nvim'
 export PATH="/home/$USER/.local/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
+
+withenv () {
+    env_file="$1"
+    cmd="${@:2}"
+    zsh -c "source $env_file && $cmd"
+}
