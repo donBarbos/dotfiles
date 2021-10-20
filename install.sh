@@ -28,6 +28,12 @@ echo 'setting zsh'
 cp -v zshrc ~/.zshrc
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+echo 'setting neovim'
+cp -v .config/nvim/init.vim ~/.config/nvim/init.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+cp -r ~/.vim/plugged/gruvbox/colors ~/.config/nvim/
+
 echo 'setting vim'
 cp -v vimrc ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

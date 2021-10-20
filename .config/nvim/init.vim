@@ -104,10 +104,10 @@ let g:VM_maps['Find Subword Under'] = ''           " replace visual C-n
 let g:VM_maps["Select Cursor Down"] = '<C-Down>'      " start selecting down
 let g:VM_maps["Select Cursor Up"]   = '<C-Up>'        " start selecting up
 
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
-let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+" let g:UltiSnipsExpandTrigger = '<tab>'
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
+" let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 
-let g:mkdp_auto_start = 1 "автоматическое открытие браузера при попытки открыть markdown
+" let g:mkdp_auto_start = 1 "автоматическое открытие браузера при попытки открыть markdown
