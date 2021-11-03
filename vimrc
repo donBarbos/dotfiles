@@ -1,5 +1,4 @@
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-" setxkbmap -option caps:escape
 inoremap jk <esc> " для выхода из режима INSERT
 
 set tabstop=4
@@ -59,12 +58,10 @@ filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'jiangmiao/auto-pairs'
-Plug 'godlygeek/tabular' "для работы с markdown
+" Plug 'jiangmiao/auto-pairs'
 Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular' "для работы с markdown
 " Plug 'iamcco/markdown-preview.vim' "будет паралельно отображаться файл в браузере
-Plug 'junegunn/vim-github-dashboard' "Обзор событий GitHub :GHD! matz
-Plug 'junegunn/vim-emoji' " emoji for GitHub
 Plug 'lervag/vimtex' "для работы с LaTeX
 " Plug 'sirver/ultisnips' "для создания сниппетов
 Plug 'cespare/vim-toml' "для поддержки синтаксиса toml
@@ -104,10 +101,10 @@ let g:VM_maps['Find Subword Under'] = ''           " replace visual C-n
 let g:VM_maps["Select Cursor Down"] = '<C-Down>'      " start selecting down
 let g:VM_maps["Select Cursor Up"]   = '<C-Up>'        " start selecting up
 
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
-let g:UltiSnipsSnippetDirectories = ['UltiSnips']
+" let g:UltiSnipsExpandTrigger = '<tab>'
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
+" let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 
-let g:mkdp_auto_start = 1 "автоматическое открытие браузера при попытки открыть markdown
+" let g:mkdp_auto_start = 1 "автоматическое открытие браузера при попытки открыть markdown
