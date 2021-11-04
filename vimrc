@@ -76,12 +76,10 @@ call plug#end()
 ""         HOTKEYS(mappings)
 ""
 """"""""""""""""""""""""""""""""""""""""
-nnoremap <C-c> "+y
-vnoremap <C-c> "+y
-map <C-n> :NERDTreeToggle<CR>
+nnoremap ,<space> :nohlsearch<CR> " turn off search highlight
 nnoremap <F2> :set nonumber!<CR> 
-nnoremap <F3> :AirlineToggle<CR> 
 nnoremap <F5> :VimtexCompile<CR> 
+map <C-n> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""
 ""
