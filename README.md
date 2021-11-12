@@ -1,12 +1,12 @@
 <h1 align="center">DOTFILES</h1>
 
 <h2 align="center">polybar</h2>
+<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view0.png">
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view1.png">
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view2.png">
 
-<h2 align="center">my archlinux and vim</h2>
-<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop2.png">
-<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/vim2.png">
+<h2 align="center">my archlinux</h2>
+<img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop0.png">
 
 > *Complete the following tasks or use the [installer](https://github.com/DONSIMON92/configs#quick-installation "will transfer to the desired head") to configure your system.*
 
