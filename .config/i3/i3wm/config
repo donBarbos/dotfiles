@@ -1,7 +1,8 @@
 set $mod Mod4
 #font pango:Hack 9
 #font -misc-fixed-medium-r-normal-*-15-*-*-*-*-*-iso10646-*
-font pango:DejaVu Sans Mono Book 12
+#font pango:DejaVu Sans Mono Book 12
+font pango: SauceCodePro Nerd Font 10
 floating_modifier $mod
 default_border pixel
 for_window [tiling] border pixel 3
@@ -70,8 +71,8 @@ bindsym ctrl+q kill
 bindsym ctrl+space exec rofi -show drun icon-theme "Papirus" -show-icons
 
 # start scripts for change config file i3wm
-bindsym ctrl+Shift+1 exec $HOME/code/Shell/change_i3config_default.sh
-bindsym ctrl+Shift+2 exec $HOME/code/Shell/change_i3config_2.sh
+# bindsym ctrl+Shift+1 exec $HOME/code/Shell/change_i3config_default.sh
+# bindsym ctrl+Shift+2 exec $HOME/code/Shell/change_i3config_2.sh
 
 # set keys to change gaps
 bindsym $mod+z		    gaps outer current plus 5; gaps inner current plus 5
@@ -158,16 +159,16 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym Mod1+g exec google-chrome-stable
+# bindsym Mod1+g exec google-chrome-stable
 bindsym Mod1+t exec telegram-desktop
 bindsym Mod1+d exec discord
 #bindsym Mod1+s exec spotify
-bindsym Mod1+r exec "termite -e 'ranger'"
-bindsym Mod1+w exec "termite -e 'weechat'"
+bindsym Mod1+r exec "konsole -e 'ranger'"
+# bindsym Mod1+w exec "termite -e 'weechat'"
 
-bindsym --release $mod+p exec "scrot -m '~/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
-bindsym --release Mod1+p exec "scrot -s '~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
-bindsym --release Mod1+Shift+p exec "scrot -u -d 4 '~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+bindsym --release $mod+p exec "scrot -m ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png"
+bindsym --release Mod1+p exec "scrot -s ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png"
+bindsym --release Mod1+Shift+p exec "scrot -u -d 4 ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -201,17 +202,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $Locker "$HOME/code/Shell/lock.sh && sleep 2"
+set $Locker "$HOME/code/Shell/lock.sh"
 set $Locker1 "i3lock-fancy"
-set $Locker2 "i3lock -c 000000 && sleep 2"
 
 set $mode_system System (l)ock, (e)logout, (r)eboot, (s)uspend, (Shift+s)hutdown
+#set $mode_system System (l)ock, (e)logout, (r)eboot, (s)uspend, (h)ibernate (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker1, mode "default"
-    bindsym Shift+l exec --no-startup-id $Locker2, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    #bindsym h exec --no-startup-id $Locker2 && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default" # suspend to RAM (recommend for notebook)
+    #bindsym h exec --no-startup-id $Locker1 && systemctl hibernate, kode "default" # suspend to disk
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
@@ -231,20 +231,21 @@ exec --no-startup-id xautolock -detectsleep -time 5 -locker 'systemctl suspend'
 ########################################################################
 ########################################################################
 
+exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
+
 #exec xrandr --output eDP1 --mode 2560x1440 --scale 0.7x0.7
 #exec xrandr --auto --output HDMI1 --mode 3440x1440 --above eDP1
-#exec compton --inactive-dim 0.1 --no-fading-openclose --inactive-dim-fixed --config /dev/null
-#exec compton -CGb
-#exec compton --opengl
-exec compton
-#exec compton -f --vsync drm
-#exec compton --config ~/.config/compton.conf -b
+#exec picom --inactive-dim 0.1 --no-fading-openclose --inactive-dim-fixed --config /dev/null
+#exec picom -CGb
+#exec picom --opengl
+#exec picom
+exec picom -f --vsync drm
+#exec picom --config ~/.config/compton.conf -b
 #exec nitrogen --restore
 
 exec_always setxkbmap -option grp:shifts_toggle "us,ru"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 #exec_always feh --bg-scale ~/Pictures/3840x2160-2638864-minimalism-4k-best-of-wallpaper-for-desktop.jpg
-exec_always feh --bg-scale ~/Pictures/wallapper.jpg
 #exec_always feh --bg-scale ~/Pictures/archwallapper.png
 #exec_always feh --bg-scale ~/Pictures/NGC\ 2841.jpg
 #exec_always feh --bg-scale ~/Downloads/Yandex.disk/Загрузки/Хаббл/ngc2841.jpg
