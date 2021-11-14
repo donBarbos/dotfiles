@@ -94,7 +94,7 @@ cursor-click = pointer
 [module/fs1]
 type = custom/script
 exec = ~/.config/polybar/scripts/free_space_home.sh
-interval = 600
+interval = 60
 label = %{T4}%{T-} %output%
 label-foreground = ${colors.primary}
 ;format-underline = ${colors.for_files}
@@ -107,7 +107,7 @@ interval = 5
 label=%output%
 click-left = ~/.config/polybar/scripts/vpn-wireguard-wg.sh --toggle &
 label-font = 4
-label-foreground = ${colors.for_vpn}
+label-foreground = ${colors.foreground-alt}
 
 [module/info-pingrtt]
 type = custom/script
@@ -309,7 +309,7 @@ click-left = "xdg-open https://yandex.ru/pogoda/Moscow"
 type = custom/script
 format-prefix = " "
 label-font = 3
-label-foreground = ${colors.orange}
+label-foreground = ${colors.primary}
 exec = ~/.config/polybar/scripts/popup-calendar.sh
 interval = 5
 click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
