@@ -63,6 +63,8 @@ cp -r .config/nvim ~/.config/
 
 * go to vim and input the command `:PlugInstall`
 
+> if we use tmux, do not forget to specify `set -g mouse on` in `~/.tmux.conf` 
+
 ## quick installation
 
 Also you can run *installer*:
