@@ -51,12 +51,13 @@ for_window [class="Yad" title="yad-calendar"] floating enable
 ########################################################################
 ########################################################################
 
-bindsym XF86MonBrightnessDown exec xbacklight -dec 7  # decrease screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 7 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
-bindsym XF86AudioMute exec amixer set Master unmute # mute sound
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
+bindsym XF86AudioMute exec ~/.config/polybar/scripts/pulseaudio-control.bash togmute # mute | unmoute sound
+bindsym XF86AudioMicMute exec "~/.config/polybar/scripts/pulseaudio-microphone.sh --toggle &"
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -220,7 +221,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Delete mode "$mode_system"
 exec --no-startup-id xautolock -detectsleep -time 5 -locker 'systemctl suspend'
 
 ########################################################################
@@ -237,10 +238,8 @@ exec_always feh --bg-scale ~/Pictures/wallpaper.jpg
 #exec xrandr --auto --output HDMI1 --mode 3440x1440 --above eDP1
 #exec picom --inactive-dim 0.1 --no-fading-openclose --inactive-dim-fixed --config /dev/null
 #exec picom -CGb
-#exec picom --opengl
-#exec picom
-exec picom -f --vsync drm
-#exec picom --config ~/.config/compton.conf -b
+#exec picom -f --opengl --no-fading-openclose --vsync drm
+exec picom --config ~/.config/picom/picom.conf
 #exec nitrogen --restore
 
 exec_always setxkbmap -option grp:shifts_toggle "us,ru"
