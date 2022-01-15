@@ -65,9 +65,9 @@ font-2 = "Wuncon Siji:pixelsize=16;4"
 font-3 = FontAwesome5Free:style=Solid:pixelsize=16;4
 font-4 = FontAwesome5Brands:style=Solid:pixelsize=16;4
 font-5 = Weather Icons:size=16;1
-font-6 = "Noto Sans:size=16;1"
+font-6 = Cryptocoins:style=Regular;0
 
-modules-left = sp0 i3 sp1 fs1 sp1 system-usb-mount
+modules-left = sp0 i3 sp1 fs1 sp1 crypto sp1 system-usb-mount
 modules-right = sp0 numlock sp0 openweathermap-detailed sp1 pub-ip sp1 xbacklight sp1 battery sp0 pulseaudio-control keyboard sp1 popup-calendar sp0
 
 tray-position = right
@@ -140,15 +140,9 @@ format-suffix-foreground = #000000
 type = custom/script
 click-left = exec xdg-open https://2ip.ru/ &
 exec = ~/.config/polybar/scripts/pub_ip_polybar.sh
-interval = 5
+interval = 50
 label = %{T4}%{T-} %output%
 label-foreground = ${colors.foreground-alt}
-
-[module/btc-price]
-type = custom/script
-exec = ~/.config/polybar/scripts/btc_price_coinm.sh
-interval = 5
-label =  %output%
 
 [module/updates-arch-combined]
 type = custom/script
@@ -460,6 +454,12 @@ scroll-down = ~/.config/polybar/scripts/pulseaudio-control.bash down
 label-padding = 2
 label-font = 4
 label-foreground = ${colors.foreground-alt}
+
+[module/crypto]
+type = custom/script
+interval = 500
+exec = ~/.config/polybar/scripts/crypto.py
+label-font = 6
 
 [settings]
 throttle-output = 5
