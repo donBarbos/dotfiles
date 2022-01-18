@@ -1,4 +1,4 @@
-set $mod Mod4
+set $mod Mod1
 #font pango:Hack 9
 #font -misc-fixed-medium-r-normal-*-15-*-*-*-*-*-iso10646-*
 #font pango:DejaVu Sans Mono Book 12
@@ -9,15 +9,15 @@ for_window [tiling] border pixel 3
 
 # for i3-gaps
 gaps inner 5
-gaps outer 5
+gaps outer 0
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #000000 #000000 #ffffff #000000   #000000
-client.focused_inactive #000000 #000000 #ffffff #000000   #000000
-client.unfocused        #000000 #000000 #888888 #000000   #000000
-client.urgent           #000000 #000000 #ffffff #000000   #000000
-client.placeholder      #000000 #000000 #ffffff #000000   #000000
-client.background       #ffffff
+client.focused          000000 000000 ffffff 000000   000000
+client.focused_inactive 000000 000000 ffffff 000000   000000
+client.unfocused        000000 000000 888888 000000   000000
+client.urgent           000000 000000 ffffff 000000   000000
+client.placeholder      000000 000000 ffffff 000000   000000
+client.background       ffffff
 
 ########################################################################
 ########################################################################
@@ -56,9 +56,10 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%-
-bindsym XF86AudioMute exec ~/.config/polybar/scripts/pulseaudio-control.bash togmute # mute | unmoute sound
+bindsym XF86AudioMute exec "~/.config/polybar/scripts/pulseaudio-control.bash togmute``"
 bindsym XF86AudioMicMute exec "~/.config/polybar/scripts/pulseaudio-microphone.sh --toggle &"
-bindsym XF86Tools exec ~/code/shell/touchpad_toggle.sh
+bindsym XF86Tools exec "~/code/shell/touchpad_toggle.sh"
+bindsym XF86Favorites exec xfce4-terminal -e "jupyter notebook"
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -105,12 +106,12 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+h split h
+bindsym Mod4+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym Mod4+v split v
 
-bindsym $mod+t split toggle
+bindsym Mod4+t split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -162,14 +163,12 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # bindsym Mod1+g exec google-chrome-stable
-bindsym Mod1+t exec telegram-desktop
-bindsym Mod1+d exec discord
-#bindsym Mod1+s exec spotify
-bindsym Mod1+r exec "konsole -e 'ranger'"
-# bindsym Mod1+w exec "termite -e 'weechat'"
+bindsym Mod4+t exec telegram-desktop
+bindsym Mod4+d exec discord
+# bindsym Mod4+s exec spotify
 
-bindsym --release $mod+p exec "scrot -m ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png"
-bindsym --release Mod1+p exec "scrot -s ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png"
+bindsym --release Mod4+p exec "scrot -m ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png"
+bindsym --release $mod+p exec "scrot -s ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png"
 bindsym --release Mod1+Shift+p exec "scrot -u -d 4 ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png"
 
 # resize window (you can also use the mouse for that)
@@ -212,8 +211,10 @@ set $mode_system System (l)ock, (e)logout, (r)eboot, (s)uspend, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker1, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default" # suspend to RAM (recommend for notebook)
-    #bindsym h exec --no-startup-id $Locker1 && systemctl hibernate, kode "default" # suspend to disk
+    # suspend to RAM (recommend for notebook)
+    bindsym s exec --no-startup-id systemctl suspend, mode "default" 
+    # suspend to disk
+    # bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
