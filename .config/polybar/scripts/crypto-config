@@ -1,9 +1,9 @@
 [general]
-base_currency = NZD
+base_currency = USD
 display = both
 
 [bitcoin]
 icon = 
 
-# [ethereum]
-# icon = 
+[ethereum]
+icon = 
