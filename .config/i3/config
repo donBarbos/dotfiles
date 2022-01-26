@@ -256,7 +256,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id "dunst"
 
-
+exec_always --no-startup-id "hda-verb /dev/snd/hwC0D0 0x1d SET_PIN_WIDGET_CONTROL 0x0"
 #exec pa-applet
 #exec_always nm-applet
 #exec_always blueman-applet
