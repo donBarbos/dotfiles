@@ -3,6 +3,7 @@
 <h2 align="center">polybar</h2>
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view1.png">
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view2.png">
+<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view3.png">
 
 <h2 align="center">my archlinux</h2>
 <img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop0.png">
