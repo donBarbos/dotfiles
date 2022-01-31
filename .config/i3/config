@@ -208,7 +208,7 @@ bindsym $mod+r mode "resize"
 set $Locker "$HOME/code/Shell/lock.sh"
 set $Locker1 "i3lock-fancy"
 
-set $mode_system System (l)ock, (e)logout, (r)eboot, (s)uspend, (Shift+s)hutdown
+set $mode_system System (l)ock,(e)logout,(r)eboot,(s)uspend,(Shift+s)hutdown
 #set $mode_system System (l)ock, (e)logout, (r)eboot, (s)uspend, (h)ibernate (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker1, mode "default"
@@ -223,6 +223,7 @@ mode "$mode_system" {
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $mod+Delete mode "default"
 }
 
 bindsym $mod+Delete mode "$mode_system"
