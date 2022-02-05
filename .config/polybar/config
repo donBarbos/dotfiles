@@ -16,7 +16,7 @@
 ;=====================================================
 
 [colors]
-background-alt = #282A2E
+background-alt = #282828
 foreground = #002B36
 foreground-alt = #ffffff
 primary = #F0C674
@@ -67,8 +67,8 @@ font-4 = FontAwesome5Brands:style=Solid:pixelsize=18;4
 font-5 = Weather Icons:size=18;1
 font-6 = Cryptocoins:style=Regular:pizelsize=18;4
 
-modules-left = sp0 i3 sp1 fs1 sp1 crypto sp1 system-usb-mount
-modules-right = sp0 numlock sp0 openweathermap-detailed sp1 pub-ip sp1 xbacklight sp1 battery pulseaudio-control keyboard sp1 popup-calendar sp0
+modules-left = sp0 i3 sp1 fs1 sp1 crypto
+modules-right = numlock sp0 openweathermap-detailed sp1 xbacklight sp1 battery pulseaudio-control keyboard sp1 popup-calendar sp0
 
 tray-position = right
 tray-padding = 0
@@ -101,7 +101,7 @@ label-font = 4
 label-foreground = ${colors.foreground-alt}
 ;label-foreground = ${colors.primary}
 ;format-underline = ${colors.for_files}
-click-left = "konsole -e 'ranger /home'"
+click-left = "xfce4-terminal -e 'ranger /home/creator'"
 
 [module/vpn-wireguard-wg]
 type = custom/script

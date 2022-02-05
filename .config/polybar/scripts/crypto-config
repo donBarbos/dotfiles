@@ -5,5 +5,8 @@ display = both
 [bitcoin]
 icon = 
 
-[ethereum]
-icon = 
+#[ethereum]
+#icon = 
+
+#[cardano]
+#icon = 
