@@ -76,6 +76,7 @@ Plug 'L3MON4D3/LuaSnip'
 " colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
+Plug 'xiyaowong/nvim-transparent'
 
 call plug#end()
 
@@ -101,7 +102,9 @@ let g:tex_conceal = 'abdmg' " настраивает маскировку
 
 let g:rust_clip_command = 'xclip -selection clipboard'
 
-" let g:mkdp_auto_start = 1 " автоматическое открытие браузера при попытки открыть markdown
+let g:mkdp_auto_start = 1 " автоматическое открытие браузера при попытки открыть markdown
+
+let g:transparent_enabled = v:true " nvim-transparent
 
 """"""""""""""""""""""""""""""""""""""""
 ""

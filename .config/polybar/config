@@ -336,7 +336,8 @@ label-discharging = %percentage%%
 ; Available tokens:
 ;   %percentage% (default) - is set to 100 if full-at is reached
 ;   %percentage_raw%
-label-full = Fully charged
+;label-full = Fully charged
+label-full = 
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
