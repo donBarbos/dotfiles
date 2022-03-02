@@ -16,9 +16,8 @@
 ;=====================================================
 
 [colors]
-background-alt = #282828
-foreground = #002B36
-foreground-alt = #ffffff
+background-alt = #282828 
+foreground-alt = #ffffff ;#f2e5bc
 primary = #F0C674
 alert = #FF0000
 newcolor = #e6b800
@@ -59,21 +58,21 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Hack:pixelsize=18;4
-font-1 = Weather Icons:style=Regular:size=18;4
-font-2 = "Wuncon Siji:pixelsize=18;4"
-font-3 = FontAwesome5Free:style=Solid:pixelsize=18;4
-font-4 = FontAwesome5Brands:style=Solid:pixelsize=18;4
+font-0 = Hack:style=Bold:pixelsize=18;4
+font-1 = Weather Icons:style=Bold:size=18;4
+font-2 = "Wuncon Siji:style=Bold:pixelsize=18;4"
+font-3 = FontAwesome5Free:style=Bold:pixelsize=18;4
+font-4 = FontAwesome5Brands:style=Bold:pixelsize=18;4
 font-5 = Weather Icons:size=18;1
-font-6 = Cryptocoins:style=Regular:pizelsize=18;4
+font-6 = Cryptocoins:style=Bold:pizelsize=18;4
 
-modules-left = sp0 i3 sp1 fs1 sp1 crypto
+modules-left = sp0 i3 sp1 fs1 sp1 crypto vpn
 modules-right = numlock sp0 openweathermap-detailed sp1 xbacklight sp1 battery pulseaudio-control keyboard sp1 popup-calendar sp0
 
 tray-position = right
 tray-padding = 0
 tray-detached = false
-tray-maxsize = 14
+tray-maxsize = 20
 ;tray-transparent = false
 ;pseudo-transparency = false
 tray-scale = 1.0
@@ -103,7 +102,7 @@ label-foreground = ${colors.foreground-alt}
 ;format-underline = ${colors.for_files}
 click-left = "xfce4-terminal -e 'ranger /home/creator'"
 
-[module/vpn-wireguard-wg]
+[module/vpn]
 type = custom/script
 exec = ~/.config/polybar/scripts/vpn-wireguard-wg.sh
 interval = 5
