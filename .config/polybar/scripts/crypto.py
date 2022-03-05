@@ -19,16 +19,19 @@ params = {'convert': base_currency}
 
 
 for currency in currencies:
-	icon = config[currency]['icon']
-	json = requests.get(f'https://api.coingecko.com/api/v3/coins/{currency}',
-					 	).json()["market_data"]
-	local_price = round(Decimal(json["current_price"][f'{base_currency.lower()}']), 0)
-	change_24 = round(Decimal(json['price_change_percentage_24h']), 1)
+    try:
+        icon = config[currency]['icon']
+        json = requests.get(f'https://api.coingecko.com/api/v3/coins/{currency}',
+                            ).json()["market_data"]
+        local_price = round(Decimal(json["current_price"][f'{base_currency.lower()}']), 0)
+        change_24 = round(Decimal(json['price_change_percentage_24h']), 1)
 
-	display_opt = config['general']['display']
-	if display_opt == 'both' or display_opt == None:
-		sys.stdout.write(f'{icon} {local_price}/{change_24:+}%  ')
-	elif display_opt == 'percentage':
-		sys.stdout.write(f'{icon} {change_24:+}%  ')
-	elif display_opt == 'price':
-		sys.stdout.write(f'{icon} {local_price}  ')
+        display_opt = config['general']['display']
+        if display_opt == 'both' or display_opt == None:
+            sys.stdout.write(f'{icon} {local_price}/{change_24:+}%  ')
+        elif display_opt == 'percentage':
+            sys.stdout.write(f'{icon} {change_24:+}%  ')
+        elif display_opt == 'price':
+            sys.stdout.write(f'{icon} {local_price}  ')
+    except:
+            sys.stdout.write('no connection  ')
