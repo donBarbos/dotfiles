@@ -10,6 +10,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.cargo/env
 
 # if tmux is executable and not inside a tmux session, then try to attach.
 # if attachment fails, start a new session

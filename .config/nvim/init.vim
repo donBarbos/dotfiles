@@ -61,7 +61,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs' " for [] {} () '' ...
 Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular' " для работы с markdown
-" Plug 'iamcco/markdown-preview.vim' " будет паралельно отображаться файл в браузере
+Plug 'iamcco/markdown-preview.vim' " будет паралельно отображаться файл в браузере
 Plug 'lervag/vimtex' " для работы с LaTeX
 Plug 'cespare/vim-toml' "для поддержки синтаксиса toml
 
@@ -99,6 +99,9 @@ let g:tex_flavor = 'latex' " Уточняем какой Тех
 let g:vimtex_view_method = 'mupdf'
 let g:vimtex_quickfix_mode = 0
 let g:tex_conceal = 'abdmg' " настраивает маскировку
+
+let g:rustfmt_autosave = 1
+autocmd BufEnter *.rs setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab textwidth=80
 
 let g:rust_clip_command = 'xclip -selection clipboard'
 
