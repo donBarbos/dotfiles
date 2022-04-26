@@ -32,10 +32,11 @@ alias lock='$HOME/code/Shell/lock.sh'
 alias e='exit'
 alias python='python3'
 
-export EDITOR='nvim'
+export EDITOR='/usr/bin/nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/home/$USER/.local/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="/home/creator/.local/share/solana/install/active_release/bin:$PATH"
 
 withenv () {
     env_file="$1"
