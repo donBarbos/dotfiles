@@ -27,10 +27,10 @@ alias clr="clear"
 alias vi="vim"
 alias su='sudo'
 alias grep='grep --colour=auto'
-# alias update='sudo pacman -Syu'
 alias lock='$HOME/code/Shell/lock.sh'
 alias e='exit'
 alias python='python3'
+alias mosh='mosh --no-init'
 
 export EDITOR='/usr/bin/nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
