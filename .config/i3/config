@@ -1,9 +1,8 @@
 #$mod=Mod1=Alt; Mod4=WIN
-set $mod Mod1 
-#font pango:Hack 12
+set $mod Mod1
+font pango:Hack 12
 #font -misc-fixed-medium-r-normal-*-15-*-*-*-*-*-iso10646-*
 #font pango:DejaVu Sans Mono Book 12
-font pango: SauceCodePro Nerd Font 8
 floating_modifier $mod
 default_border pixel
 for_window [tiling] border pixel 3

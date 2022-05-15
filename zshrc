@@ -2,6 +2,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export PATH=$PATH:/usr/local/go/bin
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="agnoster"
@@ -31,6 +32,9 @@ alias lock='$HOME/code/Shell/lock.sh'
 alias e='exit'
 alias python='python3'
 alias mosh='mosh --no-init'
+alias ls='exa'
+alias ll='exa -l'
+alias la='exa -la'
 
 export EDITOR='/usr/bin/nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
