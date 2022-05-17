@@ -41,10 +41,12 @@ for_window [class="xfce4-power-manager" title="Power Manager"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Authy"] floating enable
 for_window [class="^.*"] border pixel 1
+for_window [app_id="keepassxc"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="firefox" title="MetaMask"] floating enable
 
 # F PANEL
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -212,10 +214,10 @@ exec_always --no-startup-id "hda-verb /dev/snd/hwC0D0 0x1d SET_PIN_WIDGET_CONTRO
 # Turn screen back on when resumed
 # lock screen before sleep.
 exec swayidle \
-    timeout 300 'swaylock' \
+    timeout 300 'bash ~/code/shell/lock.sh' \
     timeout 3600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock'
+    before-sleep 'bash ~/code/shell/lock.sh'
 
 #exec_always xautolock -time 4 -locker "slock" &
 #exec --no-startup-id xset dpms 600
