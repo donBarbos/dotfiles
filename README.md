@@ -1,6 +1,7 @@
 <h1 align="center">DOTFILES</h1>
 
-<h2 align="center">polybar</h2>
+<h2 align="center">status bar</h2>
+<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view0.png">
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view1.png">
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view2.png">
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view3.png">
@@ -15,7 +16,7 @@
 ### i3-gaps
 
 ```
-cp -r .config/i3 ~/.config/. && mkdir -p ~/code/Shell && mkdir -p ~/Pictures/screenshots && mv ~/.config/i3/change_i3config_default.sh ~/.config/i3/change_i3config_2.sh ~/.config/i3/lock.sh ~/code/Shell/ && mv ~/.config/i3/archwallapper.png ~/.config/i3/NGC\ 2841.jpg ~/Pictures/. && chmod +x ~/code/Shell/*
+cp -r .config/i3 ~/.config/. && mkdir -p ~/code/shell && mkdir -p ~/Pictures/screenshots && mv ~/.config/i3/change_i3config_default.sh ~/.config/i3/change_i3config_2.sh ~/.config/i3/lock.sh ~/code/shell/ && mv ~/.config/i3/archwallapper.png ~/.config/i3/NGC\ 2841.jpg ~/Pictures/. && chmod +x ~/code/shell/*
 ```
 
 ### bspwm
@@ -70,5 +71,5 @@ cp -r .config/nvim ~/.config/
 
 Also you can run *installer*:
 ```
-sudo bash install.sh
+bash install.sh
 ```

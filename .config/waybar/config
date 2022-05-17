@@ -7,14 +7,14 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "custom/crypto"],
     "modules-center": ["sway/mode"],
-    "modules-right": ["pulseaudio", "network", "backlight", "sway/language", "battery", "clock", "tray"],
+    "modules-right": ["custom/weather", "pulseaudio", "network", "backlight", "sway/language", "battery", "clock", "tray"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{name}: {icon}",
         "format-icons": {
-            "1": "",
+            "1": "",
             // "3": "",
             "9": "",
             "10": "",
@@ -30,6 +30,49 @@
         "exec": "~/.config/waybar/modules/crypto/waybar_crypto.py",
         "exec-if": "ping pro-api.coinmarketcap.com -c1"
     },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "interval": 600,
+        "exec": "~/.config/waybar/modules/openweathermap-detailed.sh",
+        "exec-if": "ping openweathermap.org/api -c1"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        // "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": " {essid}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwadr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["🌑", "🌒", "🌓", "🌔", "🌕"]
+    },
     "keyboard-state": {
         // "numlock": true,
         "capslock": true,
@@ -38,9 +81,6 @@
             "locked": "",
             "unlocked": ""
         }
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -99,11 +139,6 @@
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑"]
-    },
     "battery": {
         "states": {
             // "good": 95,
@@ -120,35 +155,6 @@
     },
     "battery#bat2": {
         "bat": "BAT2"
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        // "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": " {essid}",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwadr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
     },
     "custom/media": {
         "format": "{icon} {}",

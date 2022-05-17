@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 window#waybar {
@@ -65,6 +65,7 @@ window#waybar.firefox {
     border-bottom: 3px solid #ffffff;
 }
 
+#custom-weather
 #clock,
 #battery,
 #cpu,
@@ -169,9 +170,7 @@ label:focus {
 }
 
 #custom-crypto {
-    font-family: "cryptocoins";
-    font-size: 16px;
-    /* font-style: bold; */
+    /* font-weight: bolder; */
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;

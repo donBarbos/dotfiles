@@ -5,6 +5,8 @@ read -p ':: Choose window manager
 
 Select an option (default = i3wm): ' option
 
+sleep 10
+
 mkdir -vp ~/code/shell
 mkdir -vp ~/Pictures/screenshots
 cp -v scripts/lock.sh ~/code/shell/lock.sh
