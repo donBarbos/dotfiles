@@ -5,8 +5,9 @@
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view1.png">
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view2.png">
 <img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view3.png">
+<img src="https://github.com/DONSIMON92/dotfiles/blob/master/screenshots/polybar-view4.png">
 
-<h2 align="center">my archlinux</h2>
+<h2 align="center">my workspace</h2>
 <img src="https://raw.githubusercontent.com/DONSIMON92/dotfiles/master/screenshots/worktop0.png">
 
 > *Complete the following tasks or use the [installer](https://github.com/DONSIMON92/dotfiles/blob/master/install.sh "will transfer to the sourse code") to configure your system.*
@@ -71,5 +72,5 @@ cp -r .config/nvim ~/.config/
 
 Also you can run *installer*:
 ```
-bash install.sh
+curl https://raw.githubusercontent.com/donBarbos/dotfiles/master/install.sh | bash
 ```

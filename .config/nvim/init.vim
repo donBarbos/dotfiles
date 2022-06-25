@@ -8,6 +8,7 @@ set autoindent
 set expandtab
 set smarttab
 set ai
+" set colorcolumn=79
 
 set showmatch
 set hlsearch
@@ -58,10 +59,10 @@ filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jiangmiao/auto-pairs' " for [] {} () '' ...
-Plug 'plasticboy/vim-markdown'
-Plug 'godlygeek/tabular' " для работы с markdown
-Plug 'iamcco/markdown-preview.vim' " будет паралельно отображаться файл в браузере
+Plug 'plasticboy/vim-markdown' " для работы с markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " будет паралельно отображаться файл в браузере
 Plug 'lervag/vimtex' " для работы с LaTeX
 Plug 'cespare/vim-toml' "для поддержки синтаксиса toml
 
@@ -89,6 +90,15 @@ nnoremap ,<space> :nohlsearch<CR> " turn off search highlight
 nnoremap <F2> :set nonumber!<CR> 
 nnoremap <F5> :VimtexCompile<CR> 
 map <C-n> :NERDTreeToggle<CR>
+map <C-f> :FZF<cr>
+
+map <S-Tab> :tabNext<cr>
+map <Tab>   :tabnext<cr>
+map <C-t>   <Esc>:tabnew<cr>
+
+map gn :bn<cr>
+map gp :bp<cr>
+map gw :Bclose<cr>
 
 """"""""""""""""""""""""""""""""""""""""
 ""
@@ -106,6 +116,7 @@ autocmd BufEnter *.rs setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab te
 let g:rust_clip_command = 'xclip -selection clipboard'
 
 let g:mkdp_auto_start = 1 " автоматическое открытие браузера при попытки открыть markdown
+let g:mkdp_theme = 'dark'
 
 let g:transparent_enabled = v:true " nvim-transparent
 
@@ -296,6 +307,6 @@ endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
 
-map gn :bn<cr>
-map gp :bp<cr>
-map gw :Bclose<cr>
+" run current script with python3 by CTRL+R in command and insert mode
+autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <C-r> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
