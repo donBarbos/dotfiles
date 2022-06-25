@@ -1,12 +1,15 @@
 export ZSH="/home/$USER/.oh-my-zsh"
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
+export FZF_DEFAULT_COMMAND="find -L"
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export PATH=$PATH:/usr/local/go/bin
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="agnoster"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+#ZSH_THEME="robbyrussell"
 
 plugins=(
     git
@@ -35,11 +38,11 @@ alias mosh='mosh --no-init'
 alias ls='exa'
 alias ll='exa -l'
 alias la='exa -la'
+alias cat="batcat"
 
 export EDITOR='/usr/bin/nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/home/$USER/.local/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/home/creator/.local/share/solana/install/active_release/bin:$PATH"
 
 withenv () {

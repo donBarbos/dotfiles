@@ -15,18 +15,38 @@ input * {
     xkb_options grp:shifts_toggle
 }
 
+# CURSOR
+seat seat0 xcursor_theme default 24
+
 # TOUCHPAD
 input type:touchpad {
     tap enabled
+    pointer_accel 0.2
     natural_scroll enabled
 }
+
+# COLOR SCHEME (GRUVBOX DARK)
+set $color_normal_white  #a89984
+set $color_bright_white  #ebdbb2
+set $color_normal_gray   #282828
+set $color_bright_gray   #3c3836
+set $color_bright_yellow #d79921
+set $color_normal_black  #1d2021
+set $color_unused        #ff0000
+
+# COLORS                  BORDER                 BACKGROUND             TEXT                   INDICATOR            CHILD_BORDER
+client.focused            $color_bright_gray     $color_bright_gray     $color_bright_white    $color_bright_gray   $color_normal_black
+client.focused_inactive   $color_bright_gray     $color_bright_gray     $color_bright_white    $color_bright_gray   $color_normal_black
+client.unfocused          $color_normal_gray     $color_normal_gray     $color_normal_white    $color_normal_gray   $color_normal_black
+client.urgent             $color_bright_yellow   $color_bright_yellow   $color_normal_black    $color_unused        $color_unused
+client.placeholder        $color_unused          $color_unused          $color_unused          $color_unused        $color_unused
 
 # WALLPAPER
 output * bg ~/pictures/wallpaper.jpg fill
 
 # GAPS
 gaps inner 5
-gaps outer 0
+smart_gaps on
 
 # BAR
 bar {
@@ -34,14 +54,16 @@ bar {
 }
 
 # FLOATING
-for_window [class="lazarus"] floating enable
-for_window [title="gnome-calculator"] floating enable
+for_window [app_id="lazarus"] floating enable
 for_window [app_id="(pavucontrol|psensor)"] floating enable
-for_window [class="xfce4-power-manager" title="Power Manager"] floating enable
+for_window [app_id="xfce4-power-manager" title="Power Manager"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Authy"] floating enable
 for_window [class="^.*"] border pixel 1
 for_window [app_id="keepassxc"] floating enable
+for_window [app_id="steam"] floating enable
+for_window [app_id="telegram"] floating enable, resize set 700 700
+for_window [app_id="gnome-calculator"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 for_window [app_id="firefox" title="Pushbullet – Mozilla Firefox"] floating enable
@@ -155,9 +177,9 @@ bindsym --to-code Mod1+Shift+0 move container to workspace 10
 bindsym --to-code $mod+Shift+r exec sway reload
 
 # SCREENSHOTS
-bindsym --release --to-code Mod4+p exec "grim -g "" ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png | wl-copy"
-bindsym --release --to-code $mod+p exec "grim -g "$(slurp)" ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png | wl-copy"
-bindsym --release --to-code $mod+Shift+p exec "grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png | wl-copy"
+bindsym --release --to-code Mod4+p exec 'grim -g "0,0 2560x1440" ~/pictures/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png | wl-copy'
+bindsym --release --to-code $mod+p exec 'grim -g "$(slurp)" ~/pictures/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png | wl-copy'
+bindsym --release --to-code $mod+Shift+p exec 'grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" ~/pictures/screenshots/scrn-$(date +"%Y-%m-%d-%H-%M-%S").png | wl-copy'
 
 # EXIT FROM SWAY
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -204,10 +226,13 @@ mode "$mode_system" {
 bindsym --to-code $mod+Delete mode "$mode_system"
 
 exec "mako"
-exec "sudo wg-quick up wg0"
+exec "wg-quick up wg0"
 exec "systemctl --user import-environment"
+exec "wl-paste -t text --watch clipman store --no-persist"
+exec "xwayland disable"
 
 exec_always --no-startup-id "hda-verb /dev/snd/hwC0D0 0x1d SET_PIN_WIDGET_CONTROL 0x0"
+exec --no-startup-id redshift -c ~/.config/redshift/config
 
 ### Idle configuration
 # Lock after 300 seconds (5 minutes), turn off screen after 3600 seconds (60 minutes)
