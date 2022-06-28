@@ -84,9 +84,9 @@ bindsym --to-code XF86Tools exec "~/code/shell/touchpad_toggle.sh"
 bindsym --to-code XF86Favorites exec "~/.config/polybar/scripts/vpn-wireguard-wg.sh --toggle &"
 
 # START A TERMINAL
-for_window [window_role="^floating$"] floating enable
-set $menu exec kitty --class Launcher -e sway-launcher-desktop
-for_window [app_id="Launcher"] floating enable, border pixel 10, sticky enable
+set $menu exec kitty --class floating-terminal
+for_window [app_id="floating-terminal"] floating enable, resize set 800 500
+bindsym --to-code $mod+Shift+Return exec $menu
 bindsym --to-code $mod+Return exec kitty
 
 # KILL FOCUSED WINDOW
