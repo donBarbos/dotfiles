@@ -27,18 +27,19 @@ source $HOME/.cargo/env
 
 alias "la"="ls -lah"
 alias hh="history"
-alias clr="clear"
 alias vi="vim"
 alias su='sudo'
 alias grep='grep --colour=auto'
 alias lock='$HOME/code/Shell/lock.sh'
 alias e='exit'
 alias python='python3'
+alias i="ipython3"
 alias mosh='mosh --no-init'
 alias ls='exa'
 alias ll='exa -l'
 alias la='exa -la'
 alias cat="batcat"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 export EDITOR='/usr/bin/nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
