@@ -1,7 +1,7 @@
 [user]
-	email = donarbos@proton.me
+	email = donbarbos@proton.me
 	name = donBarbos
-    signingkey = 0x2D27B9F657537D2E
+	signingkey = donbarbos@proton.me
 
 [core]
 	editor = nvim
@@ -281,4 +281,4 @@
 	gpgsign = true
 
 [gpg]
-	program = gpg2
+	program = gpg
