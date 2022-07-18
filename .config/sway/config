@@ -13,6 +13,7 @@ output "*" scale 1.7
 input * {
     xkb_layout us,ru
     xkb_options grp:shifts_toggle
+    xkb_options grp:caps_toggle
 }
 
 # CURSOR
@@ -61,6 +62,7 @@ for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Authy"] floating enable
 for_window [class="^.*"] border pixel 1
 for_window [class="feh"] floating enable
+for_window [class="vlc"] floating enable
 for_window [app_id="keepassxc"] floating enable
 for_window [app_id="steam"] floating enable
 for_window [app_id="telegram"] floating enable, resize set 700 700
@@ -230,6 +232,7 @@ mode "$mode_system" {
 
 bindsym --to-code $mod+Delete mode "$mode_system"
 
+exec "setxkbmap -option caps:escape"
 exec "wg-quick up wg0"
 exec "systemctl --user import-environment"
 exec "wl-paste -t text --watch clipman store --no-persist"

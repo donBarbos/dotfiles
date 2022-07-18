@@ -4,6 +4,7 @@ export FZF_DEFAULT_COMMAND="find -L"
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export PATH=$PATH:/usr/local/go/bin
+# export TERM=xterm
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
@@ -27,6 +28,7 @@ source $HOME/.cargo/env
 
 alias "la"="ls -lah"
 alias hh="history"
+alias clr="clear"
 alias vi="vim"
 alias su='sudo'
 alias grep='grep --colour=auto'
@@ -51,3 +53,11 @@ withenv () {
     cmd="${@:2}"
     zsh -c "source $env_file && $cmd"
 }
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH="$PATH:$NPM_PACKAGES/bin"
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
