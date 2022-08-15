@@ -21,20 +21,20 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
-set ignorecase " ics - поиск без учёта регистра символов
+set ignorecase
 set number
 set laststatus=2
 set scrolloff=8
-set noswapfile " отключение swap файлы
-set clipboard=unnamedplus " для копирования в общих буфер обмена
+set noswapfile
+set clipboard=unnamedplus " for common clipboard
 syntax on
 
-set ttimeoutlen=10 "Понижаем задержку ввода escape последовательностей
+set ttimeoutlen=10 " Понижаем задержку ввода escape последовательностей
 
-filetype plugin indent on "Включает определение типа файла, загрузку...
+filetype plugin indent on " Включает определение типа файла, загрузку...
 "... соответствующих ему плагинов и файлов отступов
-set encoding=utf-8 "Ставит кодировку UTF-8
-set nocompatible "Отключает обратную совместимость с Vi
+set encoding=utf-8
+set nocompatible " without support VI
 set conceallevel=1
 
 if !has('gui_running') " lightline settings
@@ -42,10 +42,17 @@ if !has('gui_running') " lightline settings
 endif
 let g:lightline = {
       \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
       \ }
 set noshowmode
 
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
+set guifont=Cascadia\ Code\ Mono\ 12
 colorscheme gruvbox
 set background=dark
 
@@ -63,19 +70,20 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jiangmiao/auto-pairs' " for [] {} () '' ...
-Plug 'plasticboy/vim-markdown' " для работы с markdown
+Plug 'plasticboy/vim-markdown' " support markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " будет паралельно отображаться файл в браузере
-Plug 'lervag/vimtex' " для работы с LaTeX
-Plug 'cespare/vim-toml' "для поддержки синтаксиса toml
+Plug 'lervag/vimtex' " support LaTeX
+Plug 'cespare/vim-toml' " syntax toml
+Plug 'tpope/vim-fugitive' " support Git
 
 " autocomplete
+Plug 'tomlion/vim-solidity'
 Plug 'rust-lang/rust.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " colorscheme
 Plug 'morhetz/gruvbox'
@@ -113,12 +121,16 @@ let g:vimtex_view_method = 'mupdf'
 let g:vimtex_quickfix_mode = 0
 let g:tex_conceal = 'abdmg' " настраивает маскировку
 
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
+
 let g:rustfmt_autosave = 1
 autocmd BufEnter *.rs setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab textwidth=80
 
 let g:rust_clip_command = 'xclip -selection clipboard'
 
-let g:mkdp_auto_start = 1 " автоматическое открытие браузера при попытки открыть markdown
+let g:mkdp_auto_start = 1 " autostart browser with open .md file
 let g:mkdp_theme = 'dark'
 
 let g:transparent_enabled = v:true " nvim-transparent
