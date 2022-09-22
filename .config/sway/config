@@ -13,7 +13,8 @@ output "*" scale 1.7
 input * {
     xkb_layout us,ru
     xkb_options grp:shifts_toggle
-    xkb_options grp:caps_toggle
+    # xkb_options grp:caps_toggle
+    xkb_options caps:swapescape
 }
 
 # CURSOR
@@ -232,13 +233,12 @@ mode "$mode_system" {
 
 bindsym --to-code $mod+Delete mode "$mode_system"
 
-exec "setxkbmap -option caps:escape"
 exec "wg-quick up wg0"
 exec "systemctl --user import-environment"
 exec "wl-paste -t text --watch clipman store --no-persist"
-exec "xwayland disable"
 
 exec_always mako
+exec_always "QT_WAYLAND_FORCE_DPI=physical"
 exec_always --no-startup-id "hda-verb /dev/snd/hwC0D0 0x1d SET_PIN_WIDGET_CONTROL 0x0"
 exec --no-startup-id redshift -c ~/.config/redshift/config
 

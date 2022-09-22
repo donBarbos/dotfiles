@@ -1,7 +1,7 @@
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-inoremap jk <esc> " для выхода из режима INSERT
-inoremap kj <esc>
+" inoremap jk <esc> " i just use caps:swapescape
+" inoremap kj <esc>
 
 set tabstop=4
 set softtabstop=4
@@ -26,6 +26,7 @@ set number
 set laststatus=2
 set scrolloff=8
 set noswapfile
+set nocompatible
 set clipboard=unnamedplus " for common clipboard
 syntax on
 
@@ -99,6 +100,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 nnoremap ,<space> :nohlsearch<CR> " turn off search highlight
 nnoremap <F2> :set nonumber!<CR> 
+nnoremap <F4> :VimtexView<CR> 
 nnoremap <F5> :VimtexCompile<CR> 
 map <C-n> :NERDTreeToggle<CR>
 map <C-f> :FZF<cr>
@@ -117,9 +119,13 @@ map gw :Bclose<cr>
 ""
 """"""""""""""""""""""""""""""""""""""""
 let g:tex_flavor = 'latex' " Уточняем какой Тех
-let g:vimtex_view_method = 'mupdf'
+let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_mode = 0
 let g:tex_conceal = 'abdmg' " настраивает маскировку
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+" let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_compiler_method = 'latexmk' " or latexrun
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
