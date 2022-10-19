@@ -76,6 +76,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " буд
 Plug 'lervag/vimtex' " support LaTeX
 Plug 'cespare/vim-toml' " syntax toml
 Plug 'tpope/vim-fugitive' " support Git
+Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
 
 " autocomplete
 Plug 'tomlion/vim-solidity'
@@ -140,6 +141,13 @@ let g:mkdp_auto_start = 1 " autostart browser with open .md file
 let g:mkdp_theme = 'dark'
 
 let g:transparent_enabled = v:true " nvim-transparent
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+autocmd FileType solidity   setlocal shiftwidth=2 tabstop=2
+autocmd FileType html       setlocal shiftwidth=2 tabstop=2
+autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType rust       setlocal shiftwidth=4 softtabstop=4 expandtab
 
 """"""""""""""""""""""""""""""""""""""""
 ""

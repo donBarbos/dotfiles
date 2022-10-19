@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "custom/crypto", "custom/weather"],
+    "modules-left": ["sway/workspaces", "custom/crypto"],
     "modules-center": ["sway/mode"],
     "modules-right": ["pulseaudio", "network", "backlight", "sway/language", "battery", "clock", "tray"],
     // Modules configuration
@@ -14,7 +14,7 @@
         "all-outputs": true,
         "format": "{name}: {icon}",
         "format-icons": {
-            "1": "",
+            // "1": "",
             // "3": "",
             "9": "",
             "10": "",
@@ -45,7 +45,7 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": "0% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-source": "{volume}% ",
@@ -57,7 +57,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            // "default": ["", "", ""]
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
@@ -151,7 +151,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
