@@ -1,21 +1,25 @@
-export ZSH="/home/$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 export FZF_DEFAULT_COMMAND="find -L"
-export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-export PATH=$PATH:/usr/local/go/bin
+gpgconf --launch gpg-agent
+export GPG_TTY="$(tty)"
+gpg-connect-agent updatestartuptty /bye >/dev/null
 # export TERM=xterm
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
-#ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 plugins=(
     git
     poetry
+    z
+    zsh-autosuggestions
 )
+zstyle ':omz:update' mode reminder
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.cargo/env
@@ -26,6 +30,8 @@ source $HOME/.cargo/env
 #   && [ -z "${TMUX}" ] \
 #   && { tmux attach || tmux; } >/dev/null 2>&1
 
+alias r="ranger"
+alias v="vifm"
 alias "la"="ls -lah"
 alias hh="history"
 alias clr="clear"
@@ -41,12 +47,15 @@ alias ls='exa'
 alias ll='exa -l'
 alias la='exa -la'
 alias cat="batcat"
+alias gpg="gpg2"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 export EDITOR='/usr/bin/nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/.zokrates/bin
 
 withenv () {
     env_file="$1"

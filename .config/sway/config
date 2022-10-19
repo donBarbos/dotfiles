@@ -12,9 +12,7 @@ output "*" scale 1.7
 # KEYBOARD
 input * {
     xkb_layout us,ru
-    xkb_options grp:shifts_toggle
-    # xkb_options grp:caps_toggle
-    xkb_options caps:swapescape
+    xkb_options "caps:swapescape,grp:shifts_toggle"
 }
 
 # CURSOR
