@@ -276,6 +276,7 @@
 
 [init]
 	templatedir = .git-templates
+	defaultBranch = main
 
 [commit]
 	gpgsign = true
@@ -285,3 +286,6 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
