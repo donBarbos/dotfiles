@@ -143,7 +143,9 @@ let g:mkdp_theme = 'dark'
 let g:transparent_enabled = v:true " nvim-transparent
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
+autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
 autocmd FileType solidity   setlocal shiftwidth=2 tabstop=2
 autocmd FileType html       setlocal shiftwidth=2 tabstop=2
 autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
