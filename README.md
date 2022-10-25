@@ -1,11 +1,13 @@
 <h1 align="center">DOTFILES</h1>
 
 <h2 align="center">status bar</h2>
-<img src="https://github.com/donBarbos/dotfiles/blob/master/screenshots/polybar-view0.png">
-<img src="https://github.com/donBarbos/dotfiles/blob/master/screenshots/polybar-view1.png">
-<img src="https://github.com/donBarbos/dotfiles/blob/master/screenshots/polybar-view2.png">
-<img src="https://github.com/donBarbos/dotfiles/blob/master/screenshots/polybar-view3.png">
-<img src="https://github.com/donBarbos/dotfiles/blob/master/screenshots/polybar-view4.png">
+
+![](./screenshots/waybar.png)
+![](./screenshots/polybar-view0.png)
+![](./screenshots/polybar-view1.png)
+![](./screenshots/polybar-view2.png)
+![](./screenshots/polybar-view3.png)
+![](./screenshots/polybar-view4.png)
 
 <h2 align="center">my workspace</h2>
 <img src="https://raw.githubusercontent.com/donBarbos/dotfiles/master/screenshots/worktop0.png">
