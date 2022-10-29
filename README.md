@@ -2,6 +2,7 @@
 
 <h2 align="center">status bar</h2>
 
+![](./screenshots/waybar_bw.png)
 ![](./screenshots/waybar.png)
 ![](./screenshots/polybar-view0.png)
 ![](./screenshots/polybar-view1.png)
