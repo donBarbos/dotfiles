@@ -69,18 +69,24 @@ filetype plugin on
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jiangmiao/auto-pairs' " for [] {} () '' ...
 Plug 'plasticboy/vim-markdown' " support markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " будет паралельно отображаться файл в браузере
 Plug 'lervag/vimtex' " support LaTeX
 Plug 'cespare/vim-toml' " syntax toml
 Plug 'tpope/vim-fugitive' " support Git
-Plug 'XadillaX/json-formatter.vim', { 'do': 'npm install -g jjson' }
+
+Plug 'nvim-lua/plenary.nvim'
+
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'typescriptreact', 'javascriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 " autocomplete
 Plug 'tomlion/vim-solidity'
-Plug 'rust-lang/rust.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -104,7 +110,6 @@ nnoremap <F2> :set nonumber!<CR>
 nnoremap <F4> :VimtexView<CR> 
 nnoremap <F5> :VimtexCompile<CR> 
 map <C-n> :NERDTreeToggle<CR>
-map <C-f> :FZF<cr>
 
 map <S-Tab> :tabNext<cr>
 map <Tab>   :tabnext<cr>
@@ -113,6 +118,15 @@ map <C-t>   <Esc>:tabnew<cr>
 map gn :bn<cr>
 map gp :bp<cr>
 map gw :Bclose<cr>
+
+" Telescope bindings
+nnoremap ,f <cmd>Telescope find_files<cr>
+nnoremap ,g <cmd>Telescope live_grep<cr>
+ 
+" Telescope fzf plugin
+lua << EOF
+require('telescope').load_extension('fzf')
+EOF
 
 """"""""""""""""""""""""""""""""""""""""
 ""
@@ -128,9 +142,17 @@ let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 " let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_compiler_method = 'latexmk' " or latexrun
 
+" Netrw file explorer settings
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 3
+
+" Automatically format frontend files with prettier after file save
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+" Disable quickfix window for prettier
+let g:prettier#quickfix_enabled = 0
 
 let g:rustfmt_autosave = 1
 autocmd BufEnter *.rs setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab textwidth=80
@@ -150,6 +172,7 @@ autocmd FileType solidity   setlocal shiftwidth=2 tabstop=2
 autocmd FileType html       setlocal shiftwidth=2 tabstop=2
 autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType rust       setlocal shiftwidth=4 softtabstop=4 expandtab
+
 
 """"""""""""""""""""""""""""""""""""""""
 ""
