@@ -170,8 +170,11 @@ autocmd FileType typescript setlocal shiftwidth=2 tabstop=2
 autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2
 autocmd FileType solidity   setlocal shiftwidth=2 tabstop=2
 autocmd FileType html       setlocal shiftwidth=2 tabstop=2
+autocmd FileType css        setlocal shiftwidth=2 tabstop=2
+autocmd FileType json       setlocal shiftwidth=2 tabstop=2
 autocmd FileType python     setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType rust       setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType java       setlocal shiftwidth=4 softtabstop=4 expandtab
 
 
 """"""""""""""""""""""""""""""""""""""""
@@ -185,6 +188,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- luasnip setup
 local luasnip = require 'luasnip'
+local async = require 'plenary.async'
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
