@@ -189,7 +189,7 @@ bindsym --release --to-code $mod+Shift+p exec 'grim -g "$(swaymsg -t get_tree | 
 # EXIT FROM SWAY
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-# resize window (you can also use the mouse for that)
+# RESIZE WINDOW (you can also use the mouse for that)
 mode "resize" {
         # same bindings, but for the arrow keys
         bindsym --to-code Left resize shrink width 5 px or 5 ppt
@@ -238,14 +238,13 @@ exec "wl-paste -t text --watch clipman store --no-persist"
 exec_always mako
 exec_always "QT_WAYLAND_FORCE_DPI=physical"
 exec_always --no-startup-id "hda-verb /dev/snd/hwC0D0 0x1d SET_PIN_WIDGET_CONTROL 0x0"
-exec --no-startup-id redshift -c ~/.config/redshift/config
 
-### Idle configuration
+### IDLE CONFIGURATION
 # Lock after 300 seconds (5 minutes), turn off screen after 3600 seconds (60 minutes)
 # Turn screen back on when resumed
 # lock screen before sleep.
 exec swayidle \
-    timeout 300 'bash ~/code/shell/lock.sh' \
+    timeout 900 'bash ~/code/shell/lock.sh' \
     timeout 3600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'bash ~/code/shell/lock.sh'
@@ -253,6 +252,7 @@ exec swayidle \
 #exec_always xautolock -time 4 -locker "slock" &
 #exec --no-startup-id xset dpms 600
 #exec xs-lock -- slock
+exec_always gammastep -c ~/.config/gammastep/gammastep.conf
 
 #exec_always xautolock -time 1 -locker "slock" &
 #exec_always xautolock -time 2 -locker "systemctl suspend" &
