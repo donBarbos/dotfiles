@@ -22,6 +22,7 @@ if !has('nvim')
 endif
 
 set ignorecase
+set relativenumber
 set number
 set laststatus=2
 set scrolloff=8
@@ -68,6 +69,9 @@ filetype plugin on
 
 call plug#begin('~/.vim/plugged')
 
+" Make your Vim/Neovim as smart as VS Code
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs' " for [] {} () '' ...
 Plug 'plasticboy/vim-markdown' " support markdown
@@ -75,11 +79,14 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " буд
 Plug 'lervag/vimtex' " support LaTeX
 Plug 'cespare/vim-toml' " syntax toml
 Plug 'tpope/vim-fugitive' " support Git
+Plug 'editorconfig/editorconfig-vim' " support .editorconfig
 
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+Plug 'voldikss/vim-floaterm' " floating terminal
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
@@ -118,6 +125,9 @@ map <C-t>   <Esc>:tabnew<cr>
 map gn :bn<cr>
 map gp :bp<cr>
 map gw :Bclose<cr>
+
+" Floaterm bindings
+nnoremap ,t :FloatermNew<CR>
 
 " Telescope bindings
 nnoremap ,f <cmd>Telescope find_files<cr>
@@ -163,6 +173,10 @@ let g:mkdp_auto_start = 1 " autostart browser with open .md file
 let g:mkdp_theme = 'dark'
 
 let g:transparent_enabled = v:true " nvim-transparent
+
+" Floaterm settings
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2
@@ -364,7 +378,3 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
 nnoremap <silent> <Leader>bd :Bclose<CR>
-
-" run current script with python3 by CTRL+R in command and insert mode
-autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <C-r> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>

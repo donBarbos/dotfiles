@@ -4,7 +4,7 @@ set $mod Mod1
 font pango: Cascadia Code 11
 floating_modifier $mod
 default_border pixel
-for_window [tiling] border pixel 3
+for_window [tiling] border pixel 0
 
 # FOR HIDPI
 output eDP-1 scale 1.7
@@ -46,7 +46,7 @@ output * bg ~/pictures/wallpaper.jpg fill
 
 # GAPS
 gaps inner 5
-smart_gaps on
+smart_gaps off
 
 # BAR
 bar {
@@ -87,7 +87,7 @@ bindsym --to-code XF86Favorites exec "~/.config/polybar/scripts/vpn-wireguard-wg
 
 # START A TERMINAL
 set $menu exec kitty --class floating-terminal
-for_window [app_id="floating-terminal"] floating enable, resize set 800 500
+for_window [app_id="floating-terminal"] floating enable, resize set 800 500, border pixel 3
 bindsym --to-code $mod+Shift+Return exec $menu
 bindsym --to-code $mod+Return exec kitty
 
@@ -252,7 +252,7 @@ exec swayidle \
 #exec_always xautolock -time 4 -locker "slock" &
 #exec --no-startup-id xset dpms 600
 #exec xs-lock -- slock
-exec_always gammastep -c ~/.config/gammastep/gammastep.conf
+exec gammastep -c ~/.config/gammastep/gammastep.conf
 
 #exec_always xautolock -time 1 -locker "slock" &
 #exec_always xautolock -time 2 -locker "systemctl suspend" &
