@@ -31,6 +31,25 @@
         "exec": "~/.config/waybar/modules/crypto/waybar_crypto.py",
         "exec-if": "ping pro-api.coinmarketcap.com -c1"
     },
+    "custom/wireguard": {
+        "format": "VPN: {}",
+        "exec": "~/.config/waybar/wireguard-rofi-waybar/wireguard.sh",
+        "on-click": "rofi -modi 'WireGuard:~/.config/waybar/wireguard-rofi-waybar/wireguard-rofi.sh' -show WireGuard",
+        "interval": 60,
+        "return-type": "json"
+    },
+    "custom/wireguard-manager": {
+        "exec": "exec ~/.config/waybar/wireguard-manager/wireguard-manager.sh -s",
+        "format": "{icon}",
+        "format-icons": {
+            "connected": "<span color=\"#50fa7b\">VPN: 🔒</span>",
+            "disconnected": "<span color=\"#ff5555\">VPN: 🔓</span>",
+        },
+        "interval": "once",
+        "on-click": "~/.config/waybar/wireguard-manager/wireguard-manager.sh -t && pkill -SIGRTMIN+1 waybar",
+        "return-type": "json",
+        "signal": 1,
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },

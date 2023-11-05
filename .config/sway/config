@@ -210,7 +210,7 @@ mode "resize" {
 }
 bindsym --to-code $mod+r mode "resize"
 
-set $Locker "$HOME/code/shell/lock.sh"
+set $Locker "$HOME/code/shell/lock.sh 2"
 set $mode_system System (l)ock,(e)logout,(r)eboot,(s)uspend,(Shift+s)hutdown
 #set $mode_system System (l)ock, (e)logout, (r)eboot, (s)uspend, (h)ibernate (Shift+s)hutdown
 mode "$mode_system" {
@@ -235,19 +235,19 @@ exec "wg-quick up wg0"
 exec "systemctl --user import-environment"
 exec "wl-paste -t text --watch clipman store --no-persist"
 
-exec_always mako
 exec_always "QT_WAYLAND_FORCE_DPI=physical"
+exec --no-startup-id "dbus-launch --exit-with-session sway"
+exec --no-startup-id mako
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 exec_always --no-startup-id "hda-verb /dev/snd/hwC0D0 0x1d SET_PIN_WIDGET_CONTROL 0x0"
 
 ### IDLE CONFIGURATION
 # Lock after 300 seconds (5 minutes), turn off screen after 3600 seconds (60 minutes)
 # Turn screen back on when resumed
 # lock screen before sleep.
-exec swayidle \
-    timeout 900 'bash ~/code/shell/lock.sh' \
+exec_always swayidle \
     timeout 3600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'bash ~/code/shell/lock.sh'
+    resume 'exec $HOME/code/shell/lock.sh 0'\
 
 #exec_always xautolock -time 4 -locker "slock" &
 #exec --no-startup-id xset dpms 600
