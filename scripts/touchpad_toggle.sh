@@ -1,16 +1,17 @@
 #!/bin/bash
 
-declare -i ID
-ID=`xinput list | grep -Eio '(touchpad|glidepoint)\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'`
-declare -i STATE
-STATE=`xinput list-props $ID | grep 'Device Enabled' | awk '{print $4}'`
-if [ $STATE -eq 1 ]
-then
-    xinput disable $ID
-    # echo "Touchpad disabled."
-    notify-send -a 'Touchpad' 'Disabled' -i input-touchpad
-else
-    xinput enable $ID
-    # echo "Touchpad enabled."
-    notify-send -a 'Touchpad' 'Enabled' -i input-touchpad
+ID=$(swaymsg -t get_inputs | jq -r '.[] | select(.name | test("(?i)(touchpad|glidepoint)")) | .identifier' | tr -d ':')
+
+if [ -n "$ID" ]; then
+    STATE=$(swaymsg -t get_inputs | jq -r ".[] | select(.name | test(\"(?i)(touchpad|glidepoint)\")) | .libinput.send_events")
+
+    if [ "$STATE" == "enabled" ]; then
+        swaymsg -t command "input $ID disable"
+        # echo "Touchpad disabled."
+        makoctl notification --app-name 'Touchpad' --body 'Disabled' --icon input-touchpad
+    else
+        swaymsg -t command "input $ID enable"
+        # echo "Touchpad enabled."
+        makoctl notification --app-name 'Touchpad' --body 'Enabled' --icon input-touchpad
+    fi
 fi
