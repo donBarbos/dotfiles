@@ -1,0 +1,44 @@
+---
+- name: Install Oh My Zsh
+  shell: >
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    creates: ~/.oh-my-zsh
+
+- name: Install Kitty
+  shell: >
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+  args:
+    creates: ~/.local/kitty.app
+
+- name: Create symlink for kitty in /usr/bin
+  file:
+    src: ~/.local/kitty.app/bin/kitty
+    dest: /usr/bin/kitty
+    state: link
+    force: yes
+
+- name: Create symlink for kitty in ~/.local/bin
+  file:
+    src: ~/.local/kitty.app/bin/kitty
+    dest: ~/.local/bin/kitty
+    state: link
+    force: yes
+
+- name: Install Cargo (Rust)
+  shell: >
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  args:
+    creates: ~/.cargo
+
+- name: Update Cargo (Rust)
+  shell: >
+    source $HOME/.cargo/env && rustup update
+  when: ansible_facts.env_vars.HOME is defined
+
+- name: Install Yazi using cargo
+  shell: >
+    source $HOME/.cargo/env && cargo install --locked yazi-fm yazi-cli
+  args:
+    creates: $HOME/.cargo/bin/yazi
+  when: ansible_facts.env_vars.HOME is defined
