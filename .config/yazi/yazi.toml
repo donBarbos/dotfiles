@@ -1,0 +1,21 @@
+[opener]
+edit = [
+	{ run = 'nvim "$@"', block = true },
+]
+
+[plugin]
+prepend_previewers = [
+  { name = "*.md",                        run = "glow" },
+  { mime = "text/csv",                    run = "miller"},
+  { mime = "audio/*",                     run = "exifaudio" },
+	{ mime = "video/*",                     run = "magick" },
+  { mime = "application/*zip",            run = "ouch" },
+	{ mime = "application/x-tar",           run = "ouch" },
+	{ mime = "application/x-bzip2",         run = "ouch" },
+	{ mime = "application/x-7z-compressed", run = "ouch" },
+	{ mime = "application/x-rar",           run = "ouch" },
+	{ mime = "application/x-xz",            run = "ouch" },
+]
+prepend_preloaders = [
+	{ mime = "video/*",                     run = "magick" },
+]

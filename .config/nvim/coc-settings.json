@@ -1,0 +1,28 @@
+{
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    },
+    "sourcery": {
+      "command": "sourcery",
+      "args": [
+        "lsp"
+      ],
+      "filetypes": [
+        "javascript", "javascriptreact", "python", "typescript", "typescriptreact"
+      ],
+      "initializationOptions": {
+        "extension_version": "coc.vim",
+        "editor_version": "nvim"
+      },
+      "settings": {
+        "sourcery": {
+          "metricsEnabled": true
+        }
+      }
+    }
+  }
+}

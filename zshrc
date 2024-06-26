@@ -1,3 +1,6 @@
+export TMUX_PROGRAM="/usr/bin/tmux"
+export TMUX_CONF="$HOME/.tmux.conf"
+export TMUX_CONF_LOCAL="$HOME/.tmux.conf.local"
 export ZSH="$HOME/.oh-my-zsh"
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 export FZF_DEFAULT_COMMAND="find -L"
@@ -16,8 +19,13 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     poetry
+    poetry-env
     z
     zsh-autosuggestions
+    mosh
+    kubectl
+    python
+    you-should-use
 )
 zstyle ':omz:update' mode reminder
 
@@ -26,11 +34,10 @@ source $HOME/.cargo/env
 
 # if tmux is executable and not inside a tmux session, then try to attach.
 # if attachment fails, start a new session
-# [ -x "$(command -v tmux)" ] \
-#   && [ -z "${TMUX}" ] \
-#   && { tmux attach || tmux; } >/dev/null 2>&1
+[ -x "$(command -v tmux)" ] \
+  && [ -z "${TMUX}" ] \
+  && { tmux attach || tmux; } >/dev/null 2>&1
 
-alias r="ranger"
 alias v="vifm"
 alias "la"="ls -lah"
 alias hh="history"
@@ -42,6 +49,7 @@ alias lock='$HOME/code/Shell/lock.sh'
 alias e='exit'
 alias python='python3'
 alias i="ipython3"
+alias redis="iredis"
 alias mosh='mosh --no-init'
 alias ls='exa'
 alias ll='exa -l'
@@ -51,11 +59,14 @@ alias gpg="gpg2"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 export EDITOR='/usr/bin/nvim'
+export GIT_EDITOR='/usr/bin/nvim'
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/.zokrates/bin
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/.zokrates/bin"
+export PATH="$HOME/.qlot/bin:$PATH"
 
 withenv () {
     env_file="$1"
@@ -88,3 +99,17 @@ if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
 # ngrok end
+. "$HOME/.cargo/env"
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+function htt() {
+  httpyac $1 --json -a | jq -r ".requests[0].response.body" | jq | bat --language=json
+}
