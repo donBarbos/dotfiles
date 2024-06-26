@@ -1,0 +1,29 @@
+---
+- name: Update apt cache and upgrade all packages
+  become: true
+  become_user: root
+  apt:
+    update_cache: yes
+    upgrade: dist
+
+- name: Install required packages
+  become: true
+  become_user: root
+  apt:
+    name:
+      - git
+      - zsh
+      - neovim
+      - vim
+      - curl
+      - wget
+      - zip
+      - unzip
+      - gcc
+      - gcc
+      - make
+      - tree
+      - build-essential
+      - htop
+      - mosh
+    state: present

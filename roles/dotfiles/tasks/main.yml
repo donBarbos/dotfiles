@@ -1,0 +1,72 @@
+---
+- name: Define dotfiles list
+  set_fact:
+    dotfiles:
+      - zshrc
+      - vimrc
+      - gitconfig
+      - tmux.conf
+      - tmux.conf.local
+      # ...
+    dotfiles_dirs:
+      - kitty
+      - nvim
+      - yazi
+      - zathura
+      # - bspwm
+      # - dunst
+      # - gammastep
+      # - i3
+      # - mako
+      # - picom
+      # - polybar
+      # - ranger
+      # - rofi
+      # - slim
+      # - sway
+      # - sxhkd
+      # - waybar
+      # - wofi
+      # ...
+
+- name: Clone dotfiles repository
+  git:
+    repo: 'https://github.com/donBarbos/dotfiles.git'
+    dest: '~/dotfiles'
+    version: master
+  args:
+    creates: ~/dotfiles
+
+- name: Check if ~/.config directory exists
+  stat:
+    path: "~/.config"
+  register: config_dir
+
+- name: Create ~/.config directory if it does not exist
+  file:
+    path: "~/.config"
+    state: directory
+  when: not config_dir.stat.exists
+
+- name: Check if dotfiles already exist
+  stat:
+    path: "~/.{{ item }}"
+  register: dotfile_check
+  with_items: "{{ dotfiles }}"
+
+- name: Copy dotfiles to home directory
+  file:
+    src: "~/dotfiles/{{ item }}"
+    dest: "~/.{{ item }}"
+    state: link
+  when: not dotfile_check.results[{{ item_index }}].stat.exists
+  with_items: "{{ dotfiles }}"
+  loop_control:
+    index_var: item_index
+
+- name: Copy dotfiles to ~/.config directory
+  copy:
+    src: "~/dotfiles/.config/{{ item }}"
+    dest: "~/.config/{{ item }}"
+    force: yes
+  with_items: "{{ dotfiles_dirs }}"

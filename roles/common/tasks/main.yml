@@ -1,0 +1,6 @@
+---
+- name: Include packages installation tasks
+  include_tasks: packages.yml
+
+- name: Include applications installation tasks
+  include_tasks: applications.yml
