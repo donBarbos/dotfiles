@@ -34,8 +34,7 @@
     repo: 'https://github.com/donBarbos/dotfiles.git'
     dest: '~/dotfiles'
     version: master
-  args:
-    creates: ~/dotfiles
+    force: true
 
 - name: Check if ~/.config directory exists
   stat:
@@ -48,21 +47,13 @@
     state: directory
   when: not config_dir.stat.exists
 
-- name: Check if dotfiles already exist
-  stat:
-    path: "~/.{{ item }}"
-  register: dotfile_check
-  with_items: "{{ dotfiles }}"
-
 - name: Copy dotfiles to home directory
   file:
     src: "~/dotfiles/{{ item }}"
     dest: "~/.{{ item }}"
     state: link
-  when: not dotfile_check.results[{{ item_index }}].stat.exists
+    force: yes
   with_items: "{{ dotfiles }}"
-  loop_control:
-    index_var: item_index
 
 - name: Copy dotfiles to ~/.config directory
   copy:
