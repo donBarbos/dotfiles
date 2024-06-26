@@ -58,6 +58,6 @@
 - name: Copy dotfiles to ~/.config directory
   copy:
     src: "~/dotfiles/.config/{{ item }}"
-    dest: "~/.config/{{ item }}"
+    dest: "~/.config/"
     force: yes
   with_items: "{{ dotfiles_dirs }}"
