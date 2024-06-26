@@ -1,14 +1,14 @@
-# my dotfiles
+# ⌨️ my dotfiles
 
 ## installation/setup
 
-1. Download files (clone repository)
+1. download files (clone repository)
 
 ```bash
 git clone https://github.com/donBarbos/dotfiles.git
 ```
 
-2. Launch Ansible Playbook
+2. start [ansible playbook](https://docs.ansible.com/ansible/latest/installation_guide/)
 
 ```bash
 ansible-playbook playbook.yml
