@@ -1,0 +1,7 @@
+require 'config.options'
+require 'config.commands'
+require 'config.keymap'
+require 'config.treesitter'
+require 'config.telescope'
+require 'config.lsp'
+require 'config.cmp'
