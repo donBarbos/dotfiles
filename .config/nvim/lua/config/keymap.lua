@@ -2,7 +2,7 @@ vim.keymap.set('n', ',<leader>', ':nohlsearch<CR>', {})
 vim.keymap.set('n', '<F2>', ':set nonumber!<CR>', {})
 
 -- NeoTree
-vim.keymap.set('n', '<c-n>', ':Neotree toggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<c-n>', ':Neotree left toggle<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', ',o', ':Neotree float reveal<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<c-g>', ':Neotree float git_status<CR>')
 -- vim.keymap.set('n', '<c-f>', ':Neotree float reveal<CR>')
