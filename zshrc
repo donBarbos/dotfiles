@@ -57,6 +57,7 @@ alias la='exa -la'
 alias cat="batcat"
 alias gpg="gpg2"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias pn=pnpm
 
 export EDITOR='/usr/bin/nvim'
 export GIT_EDITOR='/usr/bin/nvim'

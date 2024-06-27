@@ -11,14 +11,14 @@
   args:
     creates: ~/.local/kitty.app
 
-- name: Create symlink for kitty in /usr/bin
+- name: Create symlink for Kitty in /usr/bin
   file:
     src: ~/.local/kitty.app/bin/kitty
     dest: /usr/bin/kitty
     state: link
     force: yes
 
-- name: Create symlink for kitty in ~/.local/bin
+- name: Create symlink for Kitty in ~/.local/bin
   file:
     src: ~/.local/kitty.app/bin/kitty
     dest: ~/.local/bin/kitty
@@ -42,3 +42,32 @@
   args:
     creates: $HOME/.cargo/bin/yazi
   when: ansible_facts.env_vars.HOME is defined
+
+- name: Install NVM
+  shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  args:
+    creates: "~/.nvm/nvm.sh"
+
+- name: Install Node.js (lts/iron) using NVM
+  shell: >
+    zsh && nvm install lts/iron
+  when: ansible_facts.env_vars.HOME is defined
+
+- name: Install Yarn
+  shell: >
+    npm install --global yarn
+
+- name: Install PNPM
+  shell: >
+    curl -fsSL https://get.pnpm.io/install.sh | sh -
+  args:
+    creates: "~/.local/share/pnpm"
+
+- name: Install httpYac
+  shell: >
+    npm install --global httpyac
+
+- name: Install CascadiaCode NF
+  shell: >
+    wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip && cd ~/.local/share/fonts && unzip CascadiaCode.zip && rm CascadiaCode.zip && fc-cache -fv
