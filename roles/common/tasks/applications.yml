@@ -71,3 +71,29 @@
 - name: Install CascadiaCode NF
   shell: >
     wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip && cd ~/.local/share/fonts && unzip CascadiaCode.zip && rm CascadiaCode.zip && fc-cache -fv
+  args:
+    creates: "~/.local/share/fonts/CaskaydiaCoveNerdFont-Bold.ttf"
+
+- name: Install poetry
+  shell: >
+    curl -sSL https://install.python-poetry.org | python3 -
+  args:
+    creates: "~/.local/bin/poetry"
+
+- name: Install poetry zsh plugin
+  shell: >
+    mkdir $ZSH_CUSTOM/plugins/poetry && poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+  args:
+    creates: "~/.oh-my-zsh/custom/plugins/poetry"
+
+- name: Install zsh-autosuggestions plugin
+  shell: >
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  args:
+    creates: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+
+- name: Install zsh-syntax-highlighting plugin
+  shell: >
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  args:
+    creates: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"

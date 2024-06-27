@@ -26,6 +26,7 @@ plugins=(
     kubectl
     python
     you-should-use
+		zsh-syntax-highlighting
 )
 zstyle ':omz:update' mode reminder
 
