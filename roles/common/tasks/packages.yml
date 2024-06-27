@@ -30,4 +30,5 @@
       - exa
       - bat
       - iredis
+      - python3
     state: present
