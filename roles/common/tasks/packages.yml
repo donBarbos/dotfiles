@@ -20,10 +20,14 @@
       - zip
       - unzip
       - gcc
-      - gcc
       - make
       - tree
       - build-essential
+      - fontconfig
       - htop
       - mosh
+      - fzf
+      - exa
+      - bat
+      - iredis
     state: present
