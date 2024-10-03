@@ -42,7 +42,7 @@ client.urgent             $color_bright_yellow   $color_bright_yellow   $color_n
 client.placeholder        $color_unused          $color_unused          $color_unused          $color_unused        $color_unused
 
 # WALLPAPER
-output * bg ~/pictures/wallpaper.jpg fill
+output * bg ~/pictures/useless/wallpaper.jpg fill
 
 # GAPS
 gaps inner 5
